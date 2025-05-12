@@ -2,7 +2,7 @@
 "use client"
 import React, {useState} from "react";
 import DomesticPage from "./_components/domestic/Domestic";
-import Socials from "./_components/socials/SocialStrip";
+import Benefits from "./_components/gasifybenefits/Benefits";
 
 
 const Landing = () => {
@@ -28,7 +28,7 @@ const Landing = () => {
   return (
     <div>
       <DomesticPage />
-    
+      <Benefits/>
     </div>
   );
 };

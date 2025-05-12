@@ -23,7 +23,7 @@ export default function DomesticPage() {
   onValueChange={setActiveTab}
   className="w-full"
 >
-  <TabsList className="grid text-2xl w-full grid-cols-3 mb-6">
+  <TabsList className="grid text-2xl w-full grid-cols-3 mb-2">
     <TabsTrigger
       value="lpg"
       className={cn(
