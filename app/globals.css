@@ -23,6 +23,10 @@ a{
   font-weight: 200;
 }
 
+.clip-hexagon {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
 button {
   font-family: var(--font-outfit-light); /* Example for bold button text */
 }
@@ -36,7 +40,12 @@ button {
 }
 
 .colorPrimary{
-  background-color: #ffffff;
+  background-color: #f8f8f8;
+}
+
+.clrBtn{ 
+  background-color: #FFB333;
+ 
 }
 
 .markdown-body a {

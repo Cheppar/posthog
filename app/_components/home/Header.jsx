@@ -1,16 +1,12 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { PlusIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
-// import { useUser, SignOutButton } from "@clerk/nextjs";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
@@ -18,22 +14,23 @@ import { cn } from "@/lib/utils";
 
 // Navigation links for the desktop
 const navigation = [
-  { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Thematic Areas", href: "/thematic" }, // Placeholder href for dropdown
-  { name: "Impact", href: "/impact" },
-  { name: "Contact", href: "/contact" },
+  { name: "Blog", href: "/blog" },
+];
+
+const navLeft = [
+  { name: "Home", href: "/" }, // Updated href to "/" for Home
+  { name: "Small Business", href: "/small-business" }, // Updated href for clarity
 ];
 
 function Header() {
   const path = usePathname();
-  // const { user, isSignedIn } = useUser();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10); // When user scrolls down 10px, change header style
+      setScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -51,19 +48,42 @@ function Header() {
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
+          <div className="flex items-center gap-8">
             <a
               href="#"
               className="flex items-center gap-2"
-              aria-label="Black Coffee Network"
+              aria-label="Gasify Kenya"
             >
               <span className="font-display font-medium text-xl tracking-tight">
-                Black<span className="font-light text-coffee-400"> Coffee</span> Network
+                Gasify Kenya
               </span>
             </a>
+            {/* Desktop navLeft navigation */}
+            <nav className="hidden md:flex items-center gap-8">
+              {navLeft.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    "text-sm font-medium relative overflow-hidden group",
+                    path === item.href && item.name === "Home" && "font-semibold" // Optional: bold for Home when active
+                  )}
+                >
+                  {item.name}
+                  <span
+                    className={cn(
+                      "absolute bottom-0 left-0 w-full h-0.5 bg-coffee-500 transform origin-left transition-transform duration-300",
+                      path === item.href && item.name === "Home"
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    )}
+                  ></span>
+                </a>
+              ))}
+            </nav>
           </div>
 
-          {/* Desktop navigation */}
+          {/* Desktop navigation (right side) */}
           <nav className="hidden md:flex items-center gap-8">
             {navigation.map((item) =>
               item.name === "About" ? (
@@ -136,51 +156,24 @@ function Header() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-sm font-medium relative overflow-hidden group"
+                  className={cn(
+                    "text-sm font-medium relative overflow-hidden group",
+                    path === item.href && "font-semibold" // Optional: bold for active links
+                  )}
                 >
                   {item.name}
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-coffee-500 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
+                  <span
+                    className={cn(
+                      "absolute bottom-0 left-0 w-full h-0.5 bg-coffee-500 transform origin-left transition-transform duration-300",
+                      path === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    )}
+                  ></span>
                 </a>
               )
             )}
-
-            {/* Resources Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="flex items-center gap-1 text-sm font-medium"
-                >
-                  Resources
-                  <svg
-                    className="h-4 w-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <Link href="/publications">Publications</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/reports">Reports</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
             {/* Login Button */}
             <Link href="/sign-in">
-              <Button className="p-4 text-white hover:text-white rounded-full bg-black">
+              <Button className="p-4 clrBtn text-black hover:colorPrimary rounded-full bg-black">
                 Login
               </Button>
             </Link>
@@ -225,7 +218,7 @@ function Header() {
         </div>
       </div>
 
-      {/* Mobile menu, show/hide based on menu state */}
+      {/* Mobile menu */}
       <div
         className={cn(
           "md:hidden absolute w-full bg-background/90 backdrop-blur-lg border-b transition-all duration-300 ease-in-out transform",
@@ -233,11 +226,30 @@ function Header() {
         )}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 container">
+          {/* navLeft links in mobile menu */}
+          {navLeft.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className={cn(
+                "block px-3 py-2 rounded-md text-base font-medium hover:bg-muted",
+                path === item.href && item.name === "Home" && "bg-muted font-semibold relative",
+                path === item.href && item.name === "Home" && "after:absolute after:bottom-0 after:left-3 after:w-[calc(100%-1.5rem)] after:h-0.5 after:bg-coffee-500"
+              )}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {item.name}
+            </a>
+          ))}
+          {/* navigation links in mobile menu */}
           {navigation.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="block px-3 py-2 rounded-md text-base font-medium hover:bg-muted"
+              className={cn(
+                "block px-3 py-2 rounded-md text-base font-medium hover:bg-muted",
+                path === item.href && "bg-muted font-semibold"
+              )}
               onClick={() => setMobileMenuOpen(false)}
             >
               {item.name}

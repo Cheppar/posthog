@@ -1,18 +1,9 @@
 
 "use client"
 import React, {useState} from "react";
+import DomesticPage from "./_components/domestic/Domestic";
+import Socials from "./_components/socials/SocialStrip";
 
-// import Carousel from "./_components/Carousel";
-// import About from "./_components/about/AboutCard";
-// import Top from "./_components/Top";
-// import TopWrapper from "./_components/TopWrapper";
-// import Pricing from "./Pricing";
-// import Footer from "./_components/primary/Footer";
-// import Client from "./_components/clients/Client";   
-// import Funnel from "./popup/Funnel";
-// import PartnerSlider from "./_components/partners/PartnerSlider";
-// import { Download, ArrowRight } from "lucide-react";
-// import Banner from './_components/HomeBanner/Banner'; 
 
 const Landing = () => {
  // Banner state variables
@@ -36,8 +27,8 @@ const Landing = () => {
 
   return (
     <div>
-      
-     
+      <DomesticPage />
+    
     </div>
   );
 };
