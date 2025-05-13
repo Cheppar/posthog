@@ -6,6 +6,8 @@ import { useState } from "react";
 import LiquidGas from "./LiquidGas"
 import Socials from "../socials/SocialStrip";
 import Benefits from "../gasifybenefits/Benefits";
+import Download from "../gasifybenefits/Download";
+import ContactOptions from "../gasifybenefits/ContactOptions";
 
 export default function DomesticPage() {
   // State to manage the active tab
@@ -92,6 +94,8 @@ export default function DomesticPage() {
 </Tabs>
           <Socials />
           <Benefits />
+          <Download />
+          <ContactOptions/>
       </main>
     </div>
   );
