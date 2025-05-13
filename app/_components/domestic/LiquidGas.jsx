@@ -33,11 +33,11 @@ const LiquidGas = () => {
               </span>
             </div>
             <h1 className="text-4xl font-display font-semibold tracking-tight sm:text-5xl md:text-6xl mb-6">
-              {staticContent.mainTitle} <br className="hidden sm:block" />
-              <span className="text-4xl text-coffee-500">
-                "{staticContent.largeExplainer}"
-              </span>
-            </h1>
+  {staticContent.mainTitle}
+  <span className="block text-2xl text-coffee-500 sm:text-4xl">
+    "{staticContent.largeExplainer}"
+  </span>
+</h1>
             <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               {staticContent.explanation}
             </p>

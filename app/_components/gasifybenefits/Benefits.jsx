@@ -49,17 +49,16 @@ const Benefits = () => {
           {/* Text layout */}
           <div className="mx-auto max-w-3xl text-center mb-16">
             
-            <h3 className="text-xl font-display font-semibold tracking-tight sm:text-5xl md:text-6xl mb-6">
-              {staticContent.mainTitle} <br className="hidden sm:block" />
-              
-            </h3>
+          <h3 className="text-3xl font-display font-semibold tracking-tight sm:text-5xl md:text-6xl mb-1">
+            {staticContent.mainTitle} <br className="hidden sm:block" />
+          </h3>
 
         
-                <p className="text-xl text-gray-700 pt-8 ">
+                <p className="text-xl text-gray-700 pt-2 ">
                 {staticContent.explanation}  </p>
              
            
-                <div className="mt-10 flex items-center justify-center gap-x-6">
+                <div className="mt-4 flex items-center justify-center gap-x-6">
   <Link
     href="/about"
     className="clrBtn text-black px-4 py-3 rounded-full text-base font-medium transition-colors duration-200 hover:bg-gray-700 flex items-center gap-2"
@@ -75,7 +74,7 @@ const Benefits = () => {
       </section>
 
       {/* New Cards Section with shadcn/ui Card */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-4 bg-gray-50">
   <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {cardData.map((card, index) => (

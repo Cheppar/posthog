@@ -26,9 +26,9 @@ const Landing = () => {
 
 
   return (
-    <div>
+    <div className="mt-12">
       <DomesticPage />
-      <Benefits/>
+    
     </div>
   );
 };

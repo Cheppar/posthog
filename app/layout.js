@@ -22,9 +22,9 @@ const outfitLight = localFont({
 });
 
 export const metadata = {
-  title: "Black Coffee Network",
+  title: "Gasify Kenya",
   description:
-    "Pan African Youth Network",
+    "LPG | Batteries",
 };
 
 export default function RootLayout({ children }) {
