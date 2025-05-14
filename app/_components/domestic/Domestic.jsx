@@ -8,13 +8,15 @@ import Socials from "../socials/SocialStrip";
 import Benefits from "../gasifybenefits/Benefits";
 import Download from "../gasifybenefits/Download";
 import ContactOptions from "../gasifybenefits/ContactOptions";
+import Oxygen from "./Oxygen";
+import Accessory from "./Accessory";
 
 export default function DomesticPage() {
   // State to manage the active tab
   const [activeTab, setActiveTab] = useState("lpg");
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen pt-1 bg-background">
      
 
       {/* Main content */}
@@ -40,19 +42,19 @@ export default function DomesticPage() {
       value="batteries"
       className={cn(
         "hover:clrBtn",
-        activeTab === "batteries" && "clrBtn text-white"
+        activeTab === "batteries" && "clrBtn text-black"
       )}
     >
-      Batteries
+      Oxygen Gas
     </TabsTrigger>
     <TabsTrigger
       value="lpg-bottles"
       className={cn(
         "hover:clrBtn",
-        activeTab === "lpg-bottles" && "clrBtn text-white"
+        activeTab === "lpg-bottles" && "clrBtn text-black"
       )}
     >
-      LPG Bottles
+      Accessories
     </TabsTrigger>
   </TabsList>
 
@@ -64,37 +66,20 @@ export default function DomesticPage() {
   </TabsContent>
   <TabsContent value="batteries">
     <div className="p-1 bg-muted rounded-lg">
-      <h2 className="text-2xl font-semibold mb-4">Battery Solutions</h2>
-      <p>
-        Our battery solutions offer reliable energy storage for domestic
-        applications, ideal for solar systems and backup power in Kenyan
-        homes.
-      </p>
-      <ul className="list-disc pl-5 mt-4">
-        <li>Lithium-ion batteries for long-lasting performance</li>
-        <li>Compatible with solar inverters</li>
-        <li>Maintenance-free options</li>
-      </ul>
+      <Oxygen />
     </div>
   </TabsContent>
   <TabsContent value="lpg-bottles">
     <div className="p-6 bg-muted rounded-lg">
-      <h2 className="text-2xl font-semibold mb-4">LPG Bottles</h2>
-      <p>
-        Our LPG bottles are designed for convenience and safety, providing
-        Kenyan households with portable and durable gas storage solutions.
-      </p>
-      <ul className="list-disc pl-5 mt-4">
-        <li>Available in 6kg, 13kg, and 25kg sizes</li>
-        <li>Equipped with safety valves</li>
-        <li>Nationwide delivery and exchange programs</li>
-      </ul>
+      <Accessory />
     </div>
   </TabsContent>
 </Tabs>
           <Socials />
           <Benefits />
+          <div id="download"> 
           <Download />
+          </div>
           <ContactOptions/>
       </main>
     </div>

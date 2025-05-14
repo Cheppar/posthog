@@ -48,7 +48,7 @@ const Download = () => {
               </h2>
               <div className="flex justify-center md:justify-start gap-4 mb-6">
                 <a
-                  href="https://play.google.com/store"
+                  href="https://play.google.com/apps/internaltest/4701284750794841442"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Download Gasify Kenya app on Google Play"

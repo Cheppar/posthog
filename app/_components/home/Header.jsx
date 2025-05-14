@@ -114,9 +114,7 @@ function Header() {
                     <DropdownMenuItem>
                       <Link href="/about">About</Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Link href="/team">Team</Link>
-                    </DropdownMenuItem>
+                   
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : item.name === "Thematic Areas" ? (
@@ -172,7 +170,7 @@ function Header() {
               )
             )}
             {/* Login Button */}
-            <Link href="/sign-in">
+            <Link href="/contact">
               <Button className="p-4 clrBtn text-black hover:colorPrimary rounded-full bg-black">
                 Contact
               </Button>

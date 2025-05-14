@@ -60,7 +60,7 @@ const Benefits = () => {
            
                 <div className="mt-4 flex items-center justify-center gap-x-6">
   <Link
-    href="/about"
+    href="https://play.google.com/apps/internaltest/4701284750794841442"  target="_blank"
     className="clrBtn text-black px-4 py-3 rounded-full text-base font-medium transition-colors duration-200 hover:bg-gray-700 flex items-center gap-2"
   >
     <Download className="w-5 h-5" />

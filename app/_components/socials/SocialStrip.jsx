@@ -7,9 +7,7 @@ const Socials = () => {
   // Social media links (replace with your actual links)
   const socialLinks = [
     { name: "Twitter", href: "https://twitter.com/gasifykenya", icon: X },
-    { name: "Instagram", href: "https://instagram.com/gasifykenya", icon: Instagram },
-    { name: "Facebook", href: "https://facebook.com/gasifykenya", icon: Facebook },
-    { name: "Email", href: "mailto:support@gasifykenya.com", icon: Mail },
+    { name: "Email", href: "mailto:support@gasify.co.ke", icon: Mail },
   ];
 
   return (

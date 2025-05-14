@@ -1,6 +1,8 @@
 "use client";
-import React from "react";
+
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -16,8 +18,7 @@ const contactData = [
     title: "Manage your LPG online",
     description: "Use the Gasify app to order LPG, track deliveries and pay your bills.",
     buttons: [
-      { text: "Compare plans", link: "/login" },
-      { text: "Pay bills", link: "/pay-bills" },
+      { text: "Download App", link: "#download" },
     ],
     imageSrc: "/illustrations/contact/mmanage.svg",
   },
@@ -25,12 +26,21 @@ const contactData = [
     title: "Message us anytime",
     description: "Message us 24/7. Our team will get back to you during business hours.",
     buttonText: "Message us",
-    buttonLink: "/contact#message",
+    buttonLink: "/contact",
     imageSrc: "/illustrations/contact/messages.svg",
   },
 ];
 
 const ContactOptions = () => {
+  // Animation variants for Typeform-like feel
+  const buttonVariants = {
+    hover: {
+      scale: 1.05,
+      backgroundColor: "#f59e0b", // Slightly darker amber
+      transition: { duration: 0.3 },
+    },
+  };
+
   return (
     <div>
       {/* Contact Options Section */}
@@ -65,29 +75,39 @@ const ContactOptions = () => {
                 {/* Button(s) */}
                 <CardFooter className="mt-auto">
                   {item.buttonText ? (
-                    <Button asChild>
-                      <a
-                        href={item.buttonLink}
-                        target={item.buttonLink.startsWith("tel:") ? "_self" : "_blank"}
-                        rel={item.buttonLink.startsWith("tel:") ? undefined : "noopener noreferrer"}
-                        className="clrBtn"
-                      >
-                        {item.buttonText}
-                      </a>
-                    </Button>
+                    <motion.div variants={buttonVariants} whileHover="hover">
+                      <Button asChild>
+                        {item.buttonLink.startsWith("tel:") ? (
+                          <a
+                            href={item.buttonLink}
+                            target="_self"
+                            className="clrBtn"
+                          >
+                            {item.buttonText}
+                          </a>
+                        ) : (
+                          <Link href={item.buttonLink} className="clrBtn">
+                            {item.buttonText}
+                          </Link>
+                        )}
+                      </Button>
+                    </motion.div>
                   ) : (
                     <div className="flex gap-3">
                       {item.buttons.map((btn, btnIndex) => (
-                        <Button
+                        <motion.div
                           key={btnIndex}
-                          asChild
-                          variant={btnIndex === 0 ? "default" : "outline"}
-                          className="clrBtn"
+                          variants={buttonVariants}
+                          whileHover="hover"
                         >
-                          <a href={btn.link} target="_blank" rel="noopener noreferrer">
-                            {btn.text}
-                          </a>
-                        </Button>
+                          <Button
+                            asChild
+                            variant={btnIndex === 0 ? "default" : "outline"}
+                            className="clrBtn"
+                          >
+                            <Link href={btn.link}>{btn.text}</Link>
+                          </Button>
+                        </motion.div>
                       ))}
                     </div>
                   )}
