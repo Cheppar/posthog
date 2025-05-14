@@ -20,7 +20,7 @@ const navigation = [
 
 const navLeft = [
   { name: "Home", href: "/" }, // Updated href to "/" for Home
-  { name: "Small Business", href: "/small-business" }, // Updated href for clarity
+  { name: "Small Business", href: "/sme" }, // Updated href for clarity
 ];
 
 function Header() {
@@ -174,7 +174,7 @@ function Header() {
             {/* Login Button */}
             <Link href="/sign-in">
               <Button className="p-4 clrBtn text-black hover:colorPrimary rounded-full bg-black">
-                Login
+                Contact
               </Button>
             </Link>
           </nav>
