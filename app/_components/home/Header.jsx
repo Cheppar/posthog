@@ -19,8 +19,8 @@ const navigation = [
 ];
 
 const navLeft = [
-  { name: "Home", href: "/" }, // Updated href to "/" for Home
-  { name: "Small Business", href: "/sme" }, // Updated href for clarity
+  { name: "Home", href: "/" }, 
+  { name: "Small Business", href: "/business" }, 
 ];
 
 function Header() {
