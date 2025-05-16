@@ -25,7 +25,7 @@ const Terms = () => {
             {/* Introduction */}
             <h2 className="text-2xl text-amber-500 font-semibold mb-4">Introduction</h2>
             <p className="text-gray-200 mb-6">
-              These Customer Terms and Conditions (this "Agreement"), effective as of the date you accept this Agreement (the "Effective Date"), are between Gasify Kenya, Ltd., a Kenyan company with offices at 123 Gasify Plaza, Nairobi, Kenya ("Gasify") and the entity or individual accepting this Agreement ("Customer"). By clicking a button, checking a box, or using our Services, you represent that you are authorized to accept this Agreement. Gasify and Customer are collectively the "Parties" or individually a "Party."
+              These Customer Terms and Conditions (this "Agreement"), effective as of the date you accept this Agreement (the "Effective Date"), are between Gasify Kenya, Ltd., a Kenyan company with offices at Prime Plaza, Office 102, Nakuru, Kenya ("Gasify") and the entity or individual accepting this Agreement ("Customer"). By clicking a button, checking a box, or using our Services, you represent that you are authorized to accept this Agreement. Gasify and Customer are collectively the "Parties" or individually a "Party."
             </p>
 
             {/* Definitions */}
@@ -119,7 +119,7 @@ const Terms = () => {
             <h2 className="text-2xl text-amber-500 font-semibold mb-4">4. Fees and Taxes</h2>
             <h3 className="text-xl text-amber-500 font-medium mb-2">4.1 Fees</h3>
             <p className="text-gray-200 mb-6">
-              Customer shall pay fees as specified in the Order, non-refundable, without offset. Late payments may incur 1.5% monthly interest, collection costs, or service suspension until paid.
+              Customer shall pay fees as specified in the Order, non-refundable, without offset.  
             </p>
             <h3 className="text-xl text-amber-500 font-medium mb-2">4.2 Taxes</h3>
             <p className="text-gray-200 mb-6">
