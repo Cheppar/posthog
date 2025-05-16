@@ -33,7 +33,7 @@ export default function DomesticPage() {
       value="lpg"
       className={cn(
         "hover:clrBtn",
-        activeTab === "lpg" && "bg-white text-black"
+        activeTab === "lpg" && "bg-black text-black"
       )}
     >
       LPG
@@ -42,7 +42,7 @@ export default function DomesticPage() {
       value="batteries"
       className={cn(
         "hover:clrBtn",
-        activeTab === "batteries" && "bg-white text-black"
+        activeTab === "batteries" && "bg-black text-black"
       )}
     >
       Oxygen Gas
@@ -51,7 +51,7 @@ export default function DomesticPage() {
       value="lpg-bottles"
       className={cn(
         "hover:clrBtn",
-        activeTab === "lpg-bottles" && "bg-white text-black"
+        activeTab === "lpg-bottles" && "bg-black text-black"
       )}
     >
       Accessories

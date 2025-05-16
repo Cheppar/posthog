@@ -24,7 +24,7 @@ const Oxygen = () => {
             {/* Left: Text Content */}
             <div className="text-left">
               <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-white bg-blue-600 rounded-full">
-                {staticContent.tag}
+                <p>{staticContent.tag}</p>
               </span>
               <h1 className="text-3xl font-bold tracking-tight text-blue-900 sm:text-4xl md:text-5xl">
                 {staticContent.mainTitle}
@@ -37,17 +37,12 @@ const Oxygen = () => {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/about-oxygen"
-                  className="inline-block px-6 py-3 text-base font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                  href="/contact"
+                  className="inline-block px-6 py-3 text-base font-medium text-white bg-blue-500 rounded-lg hover:bg-amber-700 transition-colors duration-200"
                 >
-                  Discover More
+                  Reach out
                 </Link>
-                <Link
-                  href="/products/oxygen"
-                  className="inline-block px-6 py-3 text-base font-medium text-blue-900 bg-transparent border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-200"
-                >
-                  View Services
-                </Link>
+               
               </div>
             </div>
 

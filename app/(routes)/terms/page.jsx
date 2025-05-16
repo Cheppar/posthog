@@ -1,10 +1,10 @@
-import Blog from '@/app/_components/blog/Blog'
+import Terms from '@/app/_components/terms/Terms'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-        <Blog/>
+        <Terms />
     </div>
   )
 }

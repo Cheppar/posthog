@@ -188,7 +188,7 @@ const Footer = () => {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-white hover:text-gray-900 transition-colors"
+                      className="text-white hover:text-gray-300 transition-colors"
                       onClick={() => handleLinkClick(link.label)}
                     >
                       {link.label}
@@ -205,7 +205,7 @@ const Footer = () => {
                 <li>
                   <a
                     href={`tel:${footerData.contactInfo.phone}`}
-                    className="text-white hover:text-gray-900 transition-colors"
+                    className="text-white hover:text-gray-400 transition-colors"
                     onClick={() => handleLinkClick("Phone")}
                   >
                     {footerData.contactInfo.phone}
