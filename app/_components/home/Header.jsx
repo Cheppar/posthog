@@ -19,8 +19,8 @@ const navigation = [
 ];
 
 const navLeft = [
-  { name: "Home", href: "/" }, 
-  { name: "Small Business", href: "/business" }, 
+  { name: "Home", href: "/" },
+  { name: "Small Business", href: "/business" },
 ];
 
 function Header() {
@@ -41,11 +41,11 @@ function Header() {
 
   return (
     <header
-    className={cn(
-      "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
-      scrolled ? "bg-gray-800 backdrop-blur-md border-b py-3" : "bg-black py-5"
-    )}
-  >
+      className={cn(
+        "fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-b-amber-500",
+        scrolled ? "bg-gray-900 backdrop-blur-md py-3" : "bg-black py-5"
+      )}
+    >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
@@ -54,7 +54,7 @@ function Header() {
               className="flex items-center gap-2"
               aria-label="Gasify Kenya"
             >
-              <span className="font-display txtBtn font-medium text-2xl tracking-tight">
+              <span className="font-display txtBtn font-medium text-2xl tracking-tight text-white">
                 Gasify Kenya
               </span>
             </a>
@@ -65,14 +65,14 @@ function Header() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "text-sm  text-white font-medium relative overflow-hidden group",
-                    path === item.href && item.name === "Home" && "font-semibold" // Optional: bold for Home when active
+                    "text-sm text-white font-medium relative overflow-hidden group",
+                    path === item.href && item.name === "Home" && "font-semibold"
                   )}
                 >
                   {item.name}
                   <span
                     className={cn(
-                      "  absolute bottom-0 left-0 w-full h-0.5 bg-coffee-500 transform origin-left transition-transform duration-300",
+                      "absolute bottom-0 left-0 w-full h-0.5 bg-coffee-500 transform origin-left transition-transform duration-300",
                       path === item.href && item.name === "Home"
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
@@ -114,40 +114,6 @@ function Header() {
                     <DropdownMenuItem>
                       <Link href="/about">About</Link>
                     </DropdownMenuItem>
-                   
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : item.name === "Thematic Areas" ? (
-                <DropdownMenu key={item.name}>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="flex items-center gap-1 text-sm font-medium"
-                    >
-                      Thematic Areas
-                      <svg
-                        className="h-4 w-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem>
-                      <Link href="/programs">Ongoing Projects</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                      <Link href="/previous-projects">Previous Projects</Link>
-                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
@@ -155,8 +121,8 @@ function Header() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium relative overflow-hidden group",
-                    path === item.href && "font-semibold" // Optional: bold for active links
+                    "text-sm text-white font-medium relative overflow-hidden group",
+                    path === item.href && "font-semibold"
                   )}
                 >
                   {item.name}
@@ -169,9 +135,9 @@ function Header() {
                 </a>
               )
             )}
-            {/* Login Button */}
+            {/* Contact Button */}
             <Link href="/contact">
-              <Button className="p-4 clrBtn text-black hover:colorPrimary rounded-full bg-black">
+              <Button className="p-4 bg-amber-500 text-black hover:bg-amber-600 rounded-full">
                 Contact
               </Button>
             </Link>
@@ -180,7 +146,7 @@ function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-foreground"
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
           >
@@ -219,7 +185,7 @@ function Header() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "md:hidden absolute w-full bg-background/90 backdrop-blur-lg border-b transition-all duration-300 ease-in-out transform",
+          "md:hidden absolute w-full bg-gray-900/90 backdrop-blur-lg border-b border-b-amber-500 transition-all duration-300 ease-in-out transform",
           mobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
         )}
       >
@@ -230,8 +196,8 @@ function Header() {
               key={item.name}
               href={item.href}
               className={cn(
-                "block px-3 py-2 rounded-md text-base font-medium hover:bg-muted",
-                path === item.href && item.name === "Home" && "bg-muted font-semibold relative",
+                "block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-500/20",
+                path === item.href && item.name === "Home" && "bg-amber-500/20 font-semibold relative",
                 path === item.href && item.name === "Home" && "after:absolute after:bottom-0 after:left-3 after:w-[calc(100%-1.5rem)] after:h-0.5 after:bg-coffee-500"
               )}
               onClick={() => setMobileMenuOpen(false)}
@@ -245,8 +211,8 @@ function Header() {
               key={item.name}
               href={item.href}
               className={cn(
-                "block px-3 py-2 rounded-md text-white text-base font-medium hover:bg-muted",
-                path === item.href && "bg-muted font-semibold"
+                "block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-500/20",
+                path === item.href && "bg-amber-500/20 font-semibold"
               )}
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -255,7 +221,7 @@ function Header() {
           ))}
           <a
             href="#contact"
-            className="block mt-4 w-full bg-coffee-800 hover:bg-coffee-900 text-white px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 text-center"
+            className="block mt-4 w-full bg-amber-500 text-black hover:bg-amber-600 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 text-center"
             onClick={() => setMobileMenuOpen(false)}
           >
             Contact Us

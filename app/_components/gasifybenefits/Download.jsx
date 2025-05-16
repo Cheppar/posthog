@@ -16,8 +16,8 @@ const Download = () => {
   return (
     <div>
       {/* New Section: App Promotion */}
-      <section className="py-12 bg-white md:py-16">
-        <div className="container bg-gray-100 rounded-lg max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 bg-black md:py-16">
+        <div className="container bg-black-100 rounded-lg max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             {/* Left: Merged Phone Mockup with Screenshot */}
             <div className="relative flex justify-center">
@@ -43,7 +43,7 @@ const Download = () => {
 
             {/* Right: Text and Buttons */}
             <div className="text-center md:text-left">
-              <h2 className="text-3xl font-display font-semibold tracking-tight sm:text-4xl md:text-5xl mb-4 text-gray-900">
+              <h2 className="text-3xl font-display font-semibold tracking-tight sm:text-4xl md:text-5xl mb-4 txtBtn">
                 Order your LPG with the Gasify App
               </h2>
               <div className="flex justify-center md:justify-start gap-4 mb-6">
@@ -64,7 +64,7 @@ const Download = () => {
                   <span className="text-sm text-black font-medium">Get it on Playstore</span>
                 </a>
               </div>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-white">
                 Log in to your account
                 through the mobile app and manage your LPG anytime.
               </p>

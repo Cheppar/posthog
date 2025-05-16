@@ -36,7 +36,7 @@ const ContactOptions = () => {
   const buttonVariants = {
     hover: {
       scale: 1.05,
-      backgroundColor: "#f59e0b", // Slightly darker amber
+      backgroundColor: "#d97706", // Darker amber for hover
       transition: { duration: 0.3 },
     },
   };
@@ -44,13 +44,13 @@ const ContactOptions = () => {
   return (
     <div>
       {/* Contact Options Section */}
-      <section className="py-12 bg-white md:py-16">
+      <section className="py-12 bg-black md:py-16">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {contactData.map((item, index) => (
               <Card
                 key={index}
-                className="flex flex-col items-center text-center border-none shadow-none"
+                className="flex flex-col items-center text-center bg-black border border-amber-500 shadow-none"
               >
                 {/* Image */}
                 <CardHeader>
@@ -64,11 +64,11 @@ const ContactOptions = () => {
                 </CardHeader>
                 {/* Title */}
                 <CardContent>
-                  <CardTitle className="text-xl font-semibold text-gray-900 mb-2">
+                  <CardTitle className="text-xl font-semibold text-white mb-2">
                     <h2>{item.title}</h2>
                   </CardTitle>
                   {/* Description */}
-                  <CardDescription className="text-gray-600">
+                  <CardDescription className="text-white">
                     <p>{item.description}</p>
                   </CardDescription>
                 </CardContent>
@@ -76,17 +76,20 @@ const ContactOptions = () => {
                 <CardFooter className="mt-auto">
                   {item.buttonText ? (
                     <motion.div variants={buttonVariants} whileHover="hover">
-                      <Button asChild>
+                      <Button
+                        asChild
+                        className="bg-amber-500 text-black hover:bg-amber-600"
+                      >
                         {item.buttonLink.startsWith("tel:") ? (
                           <a
                             href={item.buttonLink}
                             target="_self"
-                            className="clrBtn"
+                            className="text-black"
                           >
                             {item.buttonText}
                           </a>
                         ) : (
-                          <Link href={item.buttonLink} className="clrBtn">
+                          <Link href={item.buttonLink} className="text-black">
                             {item.buttonText}
                           </Link>
                         )}
@@ -103,9 +106,11 @@ const ContactOptions = () => {
                           <Button
                             asChild
                             variant={btnIndex === 0 ? "default" : "outline"}
-                            className="clrBtn"
+                            className={btnIndex === 0 ? "bg-amber-500 text-white hover:bg-amber-600" : "border-amber-500 text-white hover:bg-amber-600"}
                           >
-                            <Link href={btn.link}>{btn.text}</Link>
+                            <Link href={btn.link} className="text-white">
+                              {btn.text}
+                            </Link>
                           </Button>
                         </motion.div>
                       ))}

@@ -16,11 +16,11 @@ export default function DomesticPage() {
   const [activeTab, setActiveTab] = useState("lpg");
 
   return (
-    <div className="min-h-screen pt-1 bg-background">
+    <div className="min-h-screen pt-1 bg-black">
      
 
       {/* Main content */}
-      <main className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <main className="container bg-black max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
    
 
         <Tabs
