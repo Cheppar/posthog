@@ -1,5 +1,5 @@
 import React from 'react';
-import Sme from './../../_components/sme/Sme'
+import Sme from '../../_components/sme/Sme'
 
 const page = () => {
   return (

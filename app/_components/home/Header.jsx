@@ -41,11 +41,11 @@ function Header() {
 
   return (
     <header
-      className={cn(
-        "fixed top-0 colorPrimary left-0 right-0 z-40 transition-all duration-300",
-        scrolled ? "bg-background/80 backdrop-blur-md border-b py-3" : "py-5"
-      )}
-    >
+    className={cn(
+      "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
+      scrolled ? "bg-gray-800 backdrop-blur-md border-b py-3" : "bg-black py-5"
+    )}
+  >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
@@ -54,7 +54,7 @@ function Header() {
               className="flex items-center gap-2"
               aria-label="Gasify Kenya"
             >
-              <span className="font-display font-medium text-xl tracking-tight">
+              <span className="font-display txtBtn font-medium text-2xl tracking-tight">
                 Gasify Kenya
               </span>
             </a>
@@ -65,14 +65,14 @@ function Header() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "text-sm font-medium relative overflow-hidden group",
+                    "text-sm  text-white font-medium relative overflow-hidden group",
                     path === item.href && item.name === "Home" && "font-semibold" // Optional: bold for Home when active
                   )}
                 >
                   {item.name}
                   <span
                     className={cn(
-                      "absolute bottom-0 left-0 w-full h-0.5 bg-coffee-500 transform origin-left transition-transform duration-300",
+                      "  absolute bottom-0 left-0 w-full h-0.5 bg-coffee-500 transform origin-left transition-transform duration-300",
                       path === item.href && item.name === "Home"
                         ? "scale-x-100"
                         : "scale-x-0 group-hover:scale-x-100"
@@ -91,7 +91,7 @@ function Header() {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="flex items-center gap-1 text-sm font-medium"
+                      className="flex items-center gap-1 text-sm text-white font-medium"
                     >
                       About
                       <svg
@@ -245,7 +245,7 @@ function Header() {
               key={item.name}
               href={item.href}
               className={cn(
-                "block px-3 py-2 rounded-md text-base font-medium hover:bg-muted",
+                "block px-3 py-2 rounded-md text-white text-base font-medium hover:bg-muted",
                 path === item.href && "bg-muted font-semibold"
               )}
               onClick={() => setMobileMenuOpen(false)}

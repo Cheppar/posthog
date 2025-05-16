@@ -48,7 +48,10 @@ button {
 
 .clrBtn{ 
   background-color: #FFB333;
- 
+}
+
+.txtBtn{ 
+  color: #FFB333;
 }
 
 .markdown-body a {

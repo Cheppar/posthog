@@ -41,7 +41,7 @@ const Benefits = () => {
       <section className="pt-2 pb-1 md:pt-10 md:pb-4 relative overflow-hidden">
         {/* Background with local SVG */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat  opacity-30"
          
         ></div>
 
@@ -61,8 +61,8 @@ const Benefits = () => {
                 <div className="mt-4 flex items-center justify-center gap-x-6">
   <Link
     href="https://play.google.com/apps/internaltest/4701284750794841442"  target="_blank"
-    className="clrBtn text-black px-4 py-3 rounded-full text-base font-medium transition-colors duration-200 hover:bg-gray-700 flex items-center gap-2"
-  >
+    className="inline-block px-8 py-3 text-base font-medium border border-amber-500 text-amber-500 rounded-lg hover:bg-amber-500/10 transition-colors duration-300"
+    >
     <Download className="w-5 h-5" />
     Download app
   </Link>
