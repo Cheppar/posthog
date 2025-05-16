@@ -236,7 +236,7 @@ const Footer = () => {
                     href={footerData.appStore.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block"
+                    className="inline-block bg-amber-500 gap-4 text-black inline-flex rounded-lg px-4 py-2 hover:bg-gray-200 transition-colors"
                     onClick={() => handleLinkClick("App Store")}
                   >
                     <Image
@@ -247,31 +247,10 @@ const Footer = () => {
                       className="h-10 hover:opacity-80 transition-opacity"
                       onError={() => console.error("Failed to load Google Play badge")}
                     />
+                    <p className="float-right pt-2">Download on Playstore</p>
                   </a>
                 </div>
-                {/* Social Media Links */}
-                <div className="flex space-x-4">
-                  {footerData.socialMedia.map((social) => (
-                    <a
-                      key={social.name}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="clrBtn rounded-full px-2 py-2 hover:text-gray-900 transition-colors"
-                      onClick={() => handleLinkClick(social.name)}
-                      aria-label={social.name}
-                    >
-                      <svg
-                        className="w-6 h-6"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d={social.icon} />
-                      </svg>
-                    </a>
-                  ))}
-                </div>
+               
                
               </div>
             </div>

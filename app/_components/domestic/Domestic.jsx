@@ -26,14 +26,14 @@ export default function DomesticPage() {
         <Tabs
   value={activeTab}
   onValueChange={setActiveTab}
-  className="w-full"
+  className=" w-full"
 >
-  <TabsList className="grid text-2xl w-full grid-cols-3 mb-2">
+  <TabsList className="grid bg-amber-500 text-2xl w-full grid-cols-3 mb-2">
     <TabsTrigger
       value="lpg"
       className={cn(
         "hover:clrBtn",
-        activeTab === "lpg" && "clrBtn text-black"
+        activeTab === "lpg" && "bg-white text-black"
       )}
     >
       LPG
@@ -42,7 +42,7 @@ export default function DomesticPage() {
       value="batteries"
       className={cn(
         "hover:clrBtn",
-        activeTab === "batteries" && "clrBtn text-black"
+        activeTab === "batteries" && "bg-white text-black"
       )}
     >
       Oxygen Gas
@@ -51,7 +51,7 @@ export default function DomesticPage() {
       value="lpg-bottles"
       className={cn(
         "hover:clrBtn",
-        activeTab === "lpg-bottles" && "clrBtn text-black"
+        activeTab === "lpg-bottles" && "bg-white text-black"
       )}
     >
       Accessories

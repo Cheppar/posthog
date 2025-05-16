@@ -83,7 +83,7 @@ const Benefits = () => {
       {cardData.map((card, index) => (
         <Card
           key={index}
-          className="bg-black border text-center transition-transform duration-300 hover:scale-105 p-4"
+          className="bg-black border border-amber-500 text-center transition-transform duration-300 hover:scale-105 p-4"
         >
           {/* Illustration */}
           <CardHeader className="text-xl inline-block font-semibold text-gray-900 mb-0">

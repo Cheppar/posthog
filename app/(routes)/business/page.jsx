@@ -3,7 +3,7 @@ import Sme from '../../_components/sme/Sme'
 
 const page = () => {
   return (
-    <div> <Sme /></div>
+    <div className="mt-18"> <Sme /></div>
   )
 }
 

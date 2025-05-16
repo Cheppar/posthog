@@ -50,7 +50,7 @@ function Header() {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
             <a
-              href="#"
+              href="/"
               className="flex items-center gap-2"
               aria-label="Gasify Kenya"
             >

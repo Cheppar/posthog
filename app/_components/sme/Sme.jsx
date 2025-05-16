@@ -38,7 +38,7 @@ const Benefits = () => {
   return (
     <div>
       {/* Existing Hero Section */}
-      <section className="bg-black pt-2 md:pt-10 md:pb-4 relative overflow-hidden">
+      <section className="bg-black pt-12 md:pt-10 md:pb-4 relative overflow-hidden">
         {/* Background with local SVG */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"

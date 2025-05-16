@@ -13,7 +13,7 @@ const staticContent = {
 const LiquidGas = () => {
   return (
     <div>
-      <section className="pt-2 pb-10 md:pt-10 md:pb-12 relative overflow-hidden">
+      <section className="pt-2 pb-10 md:pt-10 md:pb-4  relative overflow-hidden">
         {/* Background with local SVG from public folder */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
@@ -29,7 +29,7 @@ const LiquidGas = () => {
           <div className="mx-auto max-w-3xl text-center mb-16">
             <div className="flex justify-center mb-6">
               <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium clrBtn text-black">
-                {staticContent.tag}
+                <p>{staticContent.tag}</p>
               </span>
             </div>
             <h1 className="text-4xl font-display font-semibold tracking-tight sm:text-5xl md:text-6xl mb-6">
@@ -48,12 +48,7 @@ const LiquidGas = () => {
               >
                 Learn More
               </Link>
-              <Link
-                href="/#"
-                className="bg-black text-white px-6 py-3 rounded-full text-base font-medium transition-colors duration-200 hover:bg-brown-700"
-              >
-                Our Products
-              </Link>
+              
             </div>
           </div>
         </div>
