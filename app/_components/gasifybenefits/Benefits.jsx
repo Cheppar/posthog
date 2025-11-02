@@ -1,44 +1,36 @@
 "use client";
 
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
-import { Download, UsersRound } from "lucide-react";
+import { Download, UsersRound, CirclePlus } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Static content (no Supabase)
 const staticContent = {
-  mainTitle: "About Build Bout?",
+  tag: "Welcome / Karibu",
+  mainTitle: "Build Bout?",
   explanation:"A co-working community of builders in Nakuru, Kenya. We're looking for builders who want to build a community they'll invest in."};
 
 // Card data for the new section
-const cardData = [
-  {
-    illustration: "/illustrations/discount.svg",
-    title: "Affordable Pricing",
-    explanation: "Get LPG at budget-friendly rates, making clean energy accessible for every Kenyan household.",
-    buttonText: "Explore Pricing",
-    buttonLink: "/pricing",
-  },
-  {
-    illustration: "/illustrations/payment.svg",
-    title: "App-Based Delivery",
-    explanation: "Order LPG with ease through our mobile app, ensuring fast and reliable delivery to your doorstep.",
-    buttonText: "Download App",
-    buttonLink: "/download",
-  },
-  {
-    illustration: "/illustrations/earth.svg",
-    title: "Sustainable Energy",
-    explanation: "Switch to LPG for a cleaner, greener cooking solution that supports a sustainable future.",
-    buttonText: "Learn More",
-    buttonLink: "/sustainability",
-  },
-];
+
 
 const Benefits = () => {
+  useEffect(() => {
+    // Load Luma checkout script if not already loaded
+    if (!document.getElementById('luma-checkout')) {
+      const script = document.createElement('script');
+      script.id = 'luma-checkout';
+      script.src = 'https://embed.lu.ma/checkout-button.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   return (
     <div>
       {/* Existing Hero Section */}
-      <section className="pt-2 pb-1 md:pt-10 bluebg  md:pb-4 relative overflow-hidden">
+      <section className="pt-2 pb-1 md:pt-10   md:pb-4 relative overflow-hidden">
         {/* Background with local SVG */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
@@ -48,6 +40,11 @@ const Benefits = () => {
         <div className="container max-w-7xl mx-auto relative z-10">
           {/* Text layout */}
           <div className="mx-auto max-w-3xl text-center mb-16">
+          <div className="flex justify-center mb-6">
+              <span className="relative inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white border-2 border-white bg-transparent transition-all duration-300 hover:txtWhite hover:scale-105 hover:shadow-lg hover:shadow-white/50 active:scale-95">
+                {staticContent.tag}
+              </span>
+            </div>
             
           <h3 className="text-3xl txtBtn font-display font-semibold 
            tracking-tight sm:text-5xl md:text-6xl mb-1">
@@ -55,24 +52,27 @@ const Benefits = () => {
           </h3>
 
         
-                <p className="text-xl text-white pt-2 ">
+                <p className="text-xl mt-8 p-10 text-white pt-2 ">
                 {staticContent.explanation}  </p>
              
            
-                <div className="mt-4 flex items-center justify-center gap-x-6">
-
-                <Link
-  href="https://play.google.com/apps/internaltest/4701284750794841442"
-  target="_blank"
-  className="inline-flex items-center gap-2 px-8 py-3 text-base font-medium bg-amber-500 text-gray-900 rounded-lg hover:bg-amber-600 transition-colors duration-300"
-> Join Us
- 
-
-  <UsersRound className="w-5 h-5" />
-  
-</Link>
-
-</div>
+                <motion.div 
+                  className="mt-4 flex items-center justify-center gap-x-6"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  <a
+                    href="https://luma.com/event/evt-sW2EKFsyBm8KDAW"
+                    className="luma-checkout--button group flex items-center justify-center gap-2 md:gap-2 px-6 py-3.5 md:px-5 md:py-2.5 w-fit max-w-[280px] md:max-w-[200px] min-h-[48px] md:min-h-[40px] clrBtn rounded-full border-2 border-white hover:scale-105 hover:shadow-lg hover:shadow-white/50 hover:bg-amber-600 active:scale-95 transition-all duration-300 text-sm md:text-sm font-semibold"
+                    data-luma-action="checkout"
+                    data-luma-event-id="evt-sW2EKFsyBm8KDAW"
+                  >
+                    <CirclePlus className="text-white w-6 h-6 md:w-4 md:h-4 group-hover:rotate-90 transition-transform duration-300" />
+                    <span className="text-white font-semibold">Register Here</span>
+                  </a>
+                </motion.div>
           </div>
 
         
@@ -80,37 +80,7 @@ const Benefits = () => {
       </section>
 
       {/* New Cards Section with shadcn/ui Card */}
-  <section className="py-4 bg-gray-900">
-  <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {cardData.map((card, index) => (
-        <Card
-          key={index}
-          className="bg-gray-900 border border-amber-500 text-center transition-transform duration-300 hover:scale-105 p-4"
-        >
-          {/* Illustration */}
-          <CardHeader className="text-xl inline-block font-semibold text-gray-900 mb-0">
-            <h2 className="bg-amber-500 rounded-full px-3 py-2">{card.title}</h2>
-          </CardHeader>
-
-          <CardTitle>
-            <img
-              src={card.illustration}
-              alt={card.title}
-              className="w-50 h-50 mx-auto rounded-full mb-0"
-            />
-          </CardTitle>
-
-          <CardContent className="p-1">
-            <p className="text-white text-lg">
-              {card.explanation}
-            </p>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  </div>
-</section>
+  
     </div>
   );
 };

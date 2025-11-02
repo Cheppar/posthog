@@ -6,31 +6,31 @@ import { Download, Send } from "lucide-react";
 
 // Static content (no Supabase)
 const staticContent = {
-  mainTitle: "Gasify for Business",
-  explanation:"Gasify supports SMEs and organizations with affordable LPG. Reach out via the contact form for enquiries. "};
+  mainTitle: "Build Bout",
+  explanation:"Join our community of builders, creators, and innovators. We meet every two weeks to share ideas, network, and collaborate on innovative projects. Reach out via the contact form for enquiries."};
 
 // Card data for the new section
 const cardData = [
   {
-    illustration: "/illustrations/bulkdelivery.svg",
-    title: "Local Bulk Delivery",
-    explanation: "Bulk delivery at subsidized pricing within designated locations.",
-    buttonText: "Explore Pricing",
-    buttonLink: "/pricing",
+    illustration: "/illustrations/together.svg",
+    title: "Building Sessions",
+    explanation: "Join us every two weeks for collaborative sessions where builders come together to share ideas and work on projects.",
+    buttonText: "View Sessions",
+    buttonLink: "/about",
   },
   {
-    illustration: "/illustrations/payment.svg",
-    title: "Order via Gasify App",
-    explanation: "Order LPG with ease through our mobile app, ensuring fast and reliable delivery to your organization.",
-    buttonText: "Download App",
-    buttonLink: "/download",
+    illustration: "/illustrations/launch.svg",
+    title: "Roll Out",
+    explanation: "Connect with like-minded builders, creators, and innovators. Build together and openly with accountability.",
+    buttonText: "Join Us",
+    buttonLink: "/about",
   },
   {
-    illustration: "/illustrations/sustainable.svg",
-    title: "Sustainable Energy",
-    explanation: "We partner in initiatives to promote sustainable energy solutions. Join us for our tree planting initiatives. ",
+    illustration: "/illustrations/resent.svg",
+    title: "Presentations",
+    explanation: "Our mission is to focus on accountability by building together and openly. Turn your ideas into reality with community support.",
     buttonText: "Learn More",
-    buttonLink: "/sustainability",
+    buttonLink: "/about",
   },
 ];
 
@@ -61,7 +61,7 @@ const Benefits = () => {
                 <div className="mt-4 flex items-center justify-center gap-x-6">
   <Link
     href="/contact"
-    className="bg-amber-500 text-black px-4 py-3 rounded-full text-base font-medium transition-colors duration-200 hover:bg-gray-700 flex items-center gap-2"
+    className="yellowbg text-black px-4 py-3 rounded-full text-base font-medium transition-colors duration-200 hover:bg-gray-700 flex items-center gap-2"
   >
     Contact us
     <Send className="w-5 h-5 " />
@@ -83,8 +83,8 @@ const Benefits = () => {
           className="bg-black border border-amber-500 text-center transition-transform duration-300 hover:scale-105 p-4"
         >
           {/* Illustration */}
-          <CardHeader className="text-xl inline-block font-semibold text-gray-900 mb-0 ">
-          <h2 className="bg-amber-500 rounded-full px-3 py-2">{card.title}</h2>
+          <CardHeader className="text-xl yelloe inline-block font-semibold text-gray-900 mb-0 ">
+          <h2 className="yellowbg rounded-full px-3 py-2">{card.title}</h2>
 </CardHeader>
 
 <CardTitle >

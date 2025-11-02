@@ -19,7 +19,7 @@ const faqData = [
     answer: (
       <>
         Register for our sessions from our{" "}
-        <Link href="/events" className="txtBtn hover:text-amber-400 underline transition-colors">
+        <Link href="/about?tab=upcoming" className="txtBtn hover:text-amber-400 underline transition-colors">
           Events
         </Link>{" "}
         page. Builders need to have a clear vision and desire to make an impact locally.
@@ -48,7 +48,7 @@ const faqData = [
 
 const FAQ = () => {
   return (
-    <section className="py-16 bg-gray-900">
+    <section className="py-16 bg-black">
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-bold txtBtn mb-4">
@@ -64,7 +64,7 @@ const FAQ = () => {
             <AccordionItem 
               key={index} 
               value={`item-${index + 1}`}
-              className="border border-gray-700 rounded-lg px-4 bg-gray-800/50"
+              className="border border-gray-700 rounded-lg px-4 bg-black"
             >
               <AccordionTrigger className="text-left text-white hover:txtBtn transition-colors">
                 {faq.question}

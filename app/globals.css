@@ -55,6 +55,10 @@ button {
   background-color: #F54E00;	
 }
 
+.border-yellowbg{
+color: #F54E00
+}
+
 .colorPrimary{
   background-color: #f8f8f8;
 }
@@ -141,6 +145,15 @@ button {
 
 .animate-slide:hover {
   animation-play-state: paused;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
 
 

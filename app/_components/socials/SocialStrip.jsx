@@ -6,8 +6,8 @@ import Link from "next/link";
 const Socials = () => {
   // Social media links (replace with your actual links)
   const socialLinks = [
-    { name: "Twitter", href: "https://twitter.com/gasifykenya", icon: X },
-    { name: "Email", href: "mailto:support@gasify.co.ke", icon: Mail },
+    { name: "Twitter", href: "https://twitter.com/chepparing", icon: X },
+    { name: "Email", href: "mailto:chidi@cheppar.co.ke", icon: Mail },
   ];
 
   return (

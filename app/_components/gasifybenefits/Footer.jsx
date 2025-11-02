@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { CirclePlus } from "lucide-react";
 
 // Mock data array
 const footerDataArray = [
@@ -10,8 +11,6 @@ const footerDataArray = [
     items: [
       { href: "/about", label: "About Us" },
       { href: "/blog", label: "Blog" },
-      { href: "/terms", label: "Terms & Conditions" },
-      { href: "/privacy", label: "Privacy Policy" },
     ],
   },
   {
@@ -95,6 +94,18 @@ const Footer = () => {
     // Simulate async loading with a small delay
     const timer = setTimeout(loadFooterData, 500);
     return () => clearTimeout(timer);
+  }, []);
+
+  // Load Luma checkout script
+  useEffect(() => {
+    // Load Luma checkout script if not already loaded
+    if (!document.getElementById('luma-checkout')) {
+      const script = document.createElement('script');
+      script.id = 'luma-checkout';
+      script.src = 'https://embed.lu.ma/checkout-button.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
   }, []);
 
   // Update date and time dynamically
@@ -182,7 +193,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Column 1: Company Links */}
             <div>
-              <h3 className="text-xl text-amber-500 font-semibold  mb-4">Build Bout</h3>
+              <h3 className="text-xl txtBtn font-semibold  mb-4">Build Bout</h3>
               <ul className="space-y-2">
                 {footerData.companyLinks.map((link) => (
                   <li key={link.href}>
@@ -231,23 +242,18 @@ const Footer = () => {
               <div className="space-y-4">
                 {/* App Download Link */}
                 <div>
-                  <p className="mb-2 text-white">Download the Gasify App</p>
+                  <p className="mb-2 text-white mb-4">We gladly invite you to our sessions</p>
                   <a
-                    href={footerData.appStore.href}
+                    href="https://luma.com/event/evt-sW2EKFsyBm8KDAW"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block bg-amber-500 gap-4 text-black inline-flex rounded-lg px-4 py-2 hover:bg-gray-200 transition-colors"
-                    onClick={() => handleLinkClick("App Store")}
+                    className="inline-flex items-center gap-2 yellowbg text-black rounded-lg px-4 py-2 hover:bg-gray-200 transition-colors"
+                    data-luma-action="checkout"
+                    data-luma-event-id="evt-sW2EKFsyBm8KDAW"
+                    onClick={() => handleLinkClick("Register for Event")}
                   >
-                    <Image
-                      src={footerData.appStore.image}
-                      alt="Get it on Google Play"
-                      width={40}
-                      height={40}
-                      className="h-10 hover:opacity-80 transition-opacity"
-                      onError={() => console.error("Failed to load Google Play badge")}
-                    />
-                    <p className="float-right pt-2">Download on Playstore</p>
+                    <CirclePlus className="w-5 h-5" />
+                    <span>Join Us</span>
                   </a>
                 </div>
                

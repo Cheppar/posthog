@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 // Navigation links for the desktop
 const navigation = [
   { name: "About", href: "/about" },
-  { name: "Support", href: "/blog" },
+  { name: "Support", href: "/support" },
 ];
 
 const navLeft = [
@@ -131,7 +131,7 @@ function Header() {
                       <Link href="/about">About</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                      <Link href="/builders">Builders</Link>
+                      <Link href="/blog">Blog</Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -157,7 +157,7 @@ function Header() {
             )}
             {/* Contact Button */}
             <Link href="/contact">
-              <Button className="p-4 bg-amber-500 text-black hover:bg-amber-600 rounded-full">
+              <Button className="p-4 bg-[#d95404] text-white hover:bg-[#b84303] rounded-full">
                 Contact
               </Button>
             </Link>
@@ -244,7 +244,7 @@ function Header() {
           ))}
           <a
             href="#contact"
-            className="block mt-4 w-full bg-amber-500 text-black hover:bg-amber-600 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 text-center"
+            className="block mt-4 w-full bg-[#d95404] text-white hover:bg-[#b84303] px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 text-center"
             onClick={() => setMobileMenuOpen(false)}
           >
             Contact Us
