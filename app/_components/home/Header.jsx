@@ -15,12 +15,12 @@ import { cn } from "@/lib/utils";
 // Navigation links for the desktop
 const navigation = [
   { name: "About", href: "/about" },
-  { name: "Blog", href: "/blog" },
+  { name: "Support", href: "/blog" },
 ];
 
 const navLeft = [
   { name: "Home", href: "/" },
-  { name: "Small Business", href: "/business" },
+  { name: "Incubation", href: "/business" },
 ];
 
 function Header() {
@@ -43,21 +43,13 @@ function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-b-amber-500",
-        scrolled ? "bg-gray-900 backdrop-blur-md py-3" : "bg-black py-5"
+        scrolled ? "bg-white/70 backdrop-blur-lg shadow-lg py-3" : "py-5"
       )}
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-8">
-            <a
-              href="/"
-              className="flex items-center gap-2"
-              aria-label="Gasify Kenya"
-            >
-              <span className="font-display txtBtn font-medium text-2xl tracking-tight text-white">
-                Gasify Kenya
-              </span>
-            </a>
+            
             {/* Desktop navLeft navigation */}
             <nav className="hidden md:flex items-center gap-8">
               {navLeft.map((item) => (
@@ -65,7 +57,8 @@ function Header() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "text-sm text-white font-medium relative overflow-hidden group",
+                    "text-sm font-medium relative overflow-hidden group",
+                    scrolled ? "text-gray-900" : "txtBtn",
                     path === item.href && item.name === "Home" && "font-semibold"
                   )}
                 >
@@ -83,6 +76,26 @@ function Header() {
             </nav>
           </div>
 
+          <a
+              href="/"
+              className="flex items-center gap-2"
+              aria-label="Gasify Kenya"
+            >
+             
+              <span className="font-display txtBtn font-medium text-2xl tracking-tight">
+                Build 
+              </span>
+
+              <img 
+                src="/posthog/confused.png" 
+                alt="Point" 
+                className="h-8 w-8"
+              />
+
+              <span className="font-display txtBtn font-medium text-2xl tracking-tight">
+                Bout
+              </span>
+            </a>
           {/* Desktop navigation (right side) */}
           <nav className="hidden md:flex items-center gap-8">
             {navigation.map((item) =>
@@ -91,7 +104,10 @@ function Header() {
                   <DropdownMenuTrigger asChild>
                     <Button
                       variant="ghost"
-                      className="flex items-center gap-1 text-sm text-white font-medium"
+                      className={cn(
+                        "flex items-center gap-1 text-sm font-medium",
+                        scrolled ? "text-gray-900" : "txtBtn"
+                      )}
                     >
                       About
                       <svg
@@ -114,6 +130,9 @@ function Header() {
                     <DropdownMenuItem>
                       <Link href="/about">About</Link>
                     </DropdownMenuItem>
+                    <DropdownMenuItem>
+                      <Link href="/builders">Builders</Link>
+                    </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
@@ -121,7 +140,8 @@ function Header() {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "text-sm text-white font-medium relative overflow-hidden group",
+                    "text-sm font-medium relative overflow-hidden group",
+                    scrolled ? "text-gray-900" : "txtBtn",
                     path === item.href && "font-semibold"
                   )}
                 >
@@ -146,7 +166,10 @@ function Header() {
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-white"
+            className={cn(
+              "md:hidden inline-flex items-center justify-center p-2 rounded-md",
+              scrolled ? "text-gray-900" : "txtBtn"
+            )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
           >
@@ -185,8 +208,8 @@ function Header() {
       {/* Mobile menu */}
       <div
         className={cn(
-          "md:hidden absolute w-full bg-gray-900/90 backdrop-blur-lg border-b border-b-amber-500 transition-all duration-300 ease-in-out transform",
-          mobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
+          "md:hidden absolute w-full bg-gray-900  backdrop-blur-lg border-b border-b-amber-500 transition-all duration-300 ease-in-out transform",
+          mobileMenuOpen ? "opacity-100 backdrop-blur-lg  translate-y-0" : "opacity-0 -translate-y-10 pointer-events-none"
         )}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 container">

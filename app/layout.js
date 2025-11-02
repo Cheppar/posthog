@@ -22,9 +22,9 @@ const outfitLight = localFont({
 });
 
 export const metadata = {
-  title: "Gasify Kenya",
+  title: "Build Bout",
   description:
-    "LPG | Batteries",
+    "Co-working incubator for builders in Nakuru",
 };
 
 export default function RootLayout({ children }) {

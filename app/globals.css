@@ -11,7 +11,7 @@ body {
   font-family: var(--font-outfit); /* Use the correct variable here */
 }
 
-h1, h2, h3 {
+h1, h2, h3,span {
   font-family: var(--font-outfit-bold); /* Use the correct bold variable */
   font-weight: 700;
 }
@@ -47,16 +47,31 @@ button {
   padding: 16px;
 }
 
+.bluebg{
+  background-color: #1d4aff;
+}
+
+.yellowbg{
+  background-color: #F54E00;	
+}
+
 .colorPrimary{
   background-color: #f8f8f8;
 }
 
 .clrBtn{ 
-  background-color: #FFB333;
+  background-color:#F54E00 !important;
+  color: white;
 }
 
 .txtBtn{ 
-  color: #FFB333;
+  color: #d95404;
+}
+.txtWhite{
+  color: #f6f8fa;
+}
+.txtBlk{ 
+  color: black;
 }
 
 .markdown-body a {
@@ -92,6 +107,32 @@ button {
   100% {
     transform: translateX(-50%);
   }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
 }
 
 .animate-slide {

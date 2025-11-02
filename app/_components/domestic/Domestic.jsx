@@ -10,17 +10,16 @@ import Download from "../gasifybenefits/Download";
 import ContactOptions from "../gasifybenefits/ContactOptions";
 import Oxygen from "./Oxygen";
 import Accessory from "./Accessory";
+import FAQ from "../gasifybenefits/FAQ";
 
 export default function DomesticPage() {
   // State to manage the active tab
   const [activeTab, setActiveTab] = useState("lpg");
 
   return (
-    <div className="min-h-screen pt-1 bg-black">
-     
-
+    <div className="min-h-screen pt-1 bg-gray-900">
       {/* Main content */}
-      <main className="container bg-black max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+      <main className="container bg-gray-900 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
    
 
         <Tabs
@@ -28,12 +27,12 @@ export default function DomesticPage() {
   onValueChange={setActiveTab}
   className=" w-full"
 >
-  <TabsList className="grid bg-amber-500 text-2xl w-full grid-cols-3 mb-2">
+  <TabsList className="grid yellowbg text-2xl w-full grid-cols-3 mb-2">
     <TabsTrigger
       value="lpg"
       className={cn(
         "hover:clrBtn",
-        activeTab === "lpg" && "bg-black text-black"
+        activeTab === "lpg" && "bg-gray-900 text-black"
       )}
     >
       LPG
@@ -42,7 +41,7 @@ export default function DomesticPage() {
       value="batteries"
       className={cn(
         "hover:clrBtn",
-        activeTab === "batteries" && "bg-black text-black"
+        activeTab === "batteries" && "bg-gray-900 text-black"
       )}
     >
       Oxygen Gas
@@ -51,7 +50,7 @@ export default function DomesticPage() {
       value="lpg-bottles"
       className={cn(
         "hover:clrBtn",
-        activeTab === "lpg-bottles" && "bg-black text-black"
+        activeTab === "lpg-bottles" && "bg-gray-900 text-black"
       )}
     >
       Accessories
@@ -81,6 +80,7 @@ export default function DomesticPage() {
           <Download />
           </div>
           <ContactOptions/>
+          <FAQ/>
       </main>
     </div>
   );

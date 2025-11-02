@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
-import { Download } from "lucide-react";
+import { Download, UsersRound } from "lucide-react";
 
 // Static content (no Supabase)
 const staticContent = {
-  mainTitle: "Why Gasify?",
-  explanation:"Get rewarded for being a Gasify LPG customer. Access savings from your favourite brands, plus enjoy delivery discounts via the Gasify app. T&Cs apply."};
+  mainTitle: "About Build Bout?",
+  explanation:"A co-working community of builders in Nakuru, Kenya. We're looking for builders who want to build a community they'll invest in."};
 
 // Card data for the new section
 const cardData = [
@@ -38,7 +38,7 @@ const Benefits = () => {
   return (
     <div>
       {/* Existing Hero Section */}
-      <section className="pt-2 pb-1 md:pt-10  md:pb-4 relative overflow-hidden">
+      <section className="pt-2 pb-1 md:pt-10 bluebg  md:pb-4 relative overflow-hidden">
         {/* Background with local SVG */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
@@ -49,7 +49,8 @@ const Benefits = () => {
           {/* Text layout */}
           <div className="mx-auto max-w-3xl text-center mb-16">
             
-          <h3 className="text-3xl txtBtn font-display font-semibold tracking-tight sm:text-5xl md:text-6xl mb-1">
+          <h3 className="text-3xl txtBtn font-display font-semibold 
+           tracking-tight sm:text-5xl md:text-6xl mb-1">
             {staticContent.mainTitle} <br className="hidden sm:block" />
           </h3>
 
@@ -64,8 +65,10 @@ const Benefits = () => {
   href="https://play.google.com/apps/internaltest/4701284750794841442"
   target="_blank"
   className="inline-flex items-center gap-2 px-8 py-3 text-base font-medium bg-amber-500 text-gray-900 rounded-lg hover:bg-amber-600 transition-colors duration-300"
-> Download app
-  <Download className="w-5 h-5" />
+> Join Us
+ 
+
+  <UsersRound className="w-5 h-5" />
   
 </Link>
 
@@ -77,13 +80,13 @@ const Benefits = () => {
       </section>
 
       {/* New Cards Section with shadcn/ui Card */}
-      <section className="py-4 bg-black">
+  <section className="py-4 bg-gray-900">
   <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {cardData.map((card, index) => (
         <Card
           key={index}
-          className="bg-black border border-amber-500 text-center transition-transform duration-300 hover:scale-105 p-4"
+          className="bg-gray-900 border border-amber-500 text-center transition-transform duration-300 hover:scale-105 p-4"
         >
           {/* Illustration */}
           <CardHeader className="text-xl inline-block font-semibold text-gray-900 mb-0">

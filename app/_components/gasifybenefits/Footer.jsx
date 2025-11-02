@@ -17,9 +17,9 @@ const footerDataArray = [
   {
     section: "contactInfo",
     items: {
-      phone: "+254 787 920 047",
-      email: "support@gasify.co.ke",
-      hours: "8am to 7pm EAT, weekdays",
+      phone: "+254 716 813 545", 
+      email: "support@buildbout.co.ke",
+      hours: "Remote 24/7",
     },
   },
   {
@@ -182,7 +182,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Column 1: Company Links */}
             <div>
-              <h3 className="text-xl text-amber-500 font-semibold  mb-4">Gasify Kenya</h3>
+              <h3 className="text-xl text-amber-500 font-semibold  mb-4">Build Bout</h3>
               <ul className="space-y-2">
                 {footerData.companyLinks.map((link) => (
                   <li key={link.href}>
@@ -262,7 +262,7 @@ const Footer = () => {
 
       {/* Sub-Footer */}
       <div className="bg-black py-4 text-center text-sm text-gray-200">
-        <p>Gasify © {currentYear}</p>
+        <p>Build | Bout © {currentYear}</p>
         <p>{currentDateTime}</p>
       </div>
 
