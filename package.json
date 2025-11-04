@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:cpanel": "next build && cp .htaccess out/.htaccess && echo '✅ Build complete! Upload contents of the out/ directory to your cPanel public_html folder.'",
     "start": "next start",
     "lint": "next lint"
   },
@@ -18,6 +19,7 @@
     "framer-motion": "^12.11.0",
     "lucide-react": "^0.509.0",
     "next": "15.3.2",
+    "posthog-js": "^1.284.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.0"

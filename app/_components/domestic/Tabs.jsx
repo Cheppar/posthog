@@ -22,7 +22,7 @@ function Tabbs() {
       value="lpg"
       className={cn(
         "hover:clrBtn",
-        activeTab === "lpg" && "bg-black text-white"
+        activeTab === "lpg" && "bg-black text-black"
       )}
     >
       Session 1
@@ -31,7 +31,7 @@ function Tabbs() {
       value="batteries"
       className={cn(
         "hover:clrBtn",
-        activeTab === "batteries" && "bg-black text-white"
+        activeTab === "batteries" && "bg-black text-black"
       )}
     >
       Session 2
@@ -40,7 +40,7 @@ function Tabbs() {
       value="lpg-bottles"
       className={cn(
         "hover:clrBtn",
-        activeTab === "lpg-bottles" && "bg-black text-white"
+        activeTab === "lpg-bottles" && "bg-black text-black"
       )}
     >
       Session 3
@@ -49,7 +49,7 @@ function Tabbs() {
       value="events"
       className={cn(
         "hover:clrBtn",
-        activeTab === "events" && "bg-black text-white"
+        activeTab === "events" && "bg-black text-black"
       )}
     >
       Session 4

@@ -10,6 +10,7 @@ const footerDataArray = [
     section: "companyLinks",
     items: [
       { href: "/about", label: "About Us" },
+      { href: "/about?tab=upcoming", label: "Events" },
       { href: "/blog", label: "Blog" },
     ],
   },
@@ -18,7 +19,7 @@ const footerDataArray = [
     items: {
       phone: "+254 716 813 545", 
       email: "support@buildbout.co.ke",
-      hours: "Remote 24/7",
+      hours: "895-20100, Nakuru, Kenya",
     },
   },
   {
@@ -225,7 +226,7 @@ const Footer = () => {
                 <li>
                   <a
                     href={`mailto:${footerData.contactInfo.email}`}
-                    className=" text-white hover:text-gray-900 transition-colors"
+                    className=" text-white hover:text-gray-400 transition-colors"
                     onClick={() => handleLinkClick("Email")}
                   >
                     {footerData.contactInfo.email}

@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Provider from "./Provider";
+import { PostHogProvider } from "./providers";
 // import WhatsAppWidget from "./_components/widget/Whatsapp";
 
 const outfitRegular = localFont({
@@ -33,10 +34,12 @@ export default function RootLayout({ children }) {
       <body
           className={`${outfitRegular.variable} ${outfitBold.variable} ${outfitLight.variable} antialiased`}
         >
-          <Provider> 
-        {children}
-        {/* <WhatsAppWidget/> */}
-        </Provider>
+          <PostHogProvider>
+            <Provider> 
+              {children}
+              {/* <WhatsAppWidget/> */}
+            </Provider>
+          </PostHogProvider>
       </body>
     </html>
   );

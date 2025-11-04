@@ -48,14 +48,22 @@ const sponsorsData = {
       name: "PostHog",
       type: "Analytics Platform",
       description: "PostHog provides powerful product analytics and feature flags to help builders make data-driven decisions.",
-      logo: "/posthog/posthog-logo-stacked.svg"
+      logo: "/posthog/confused.png"
     },
     {
       id: "sponsor-2",
+      name: "PayHero Kenya",
+      type: "FinTech Platform",
+      logo: "/posthog/payhero.png",
+      description: "Easily integrate payments to your SaaS using PayHero Kenya."
+    },
+    {
+      id: "sponsor-3",
       name: "Community Supporters",
       type: "Community",
       description: "Our community members who contribute through various support channels."
-    }
+    },
+    
   ]
 };
 
@@ -78,11 +86,7 @@ const sidebarItems = [
     label: "Our Vision",
     icon: Eye,
   },
-  {
-    id: "sponsors",
-    label: "Sponsors",
-    icon: Handshake,
-  },
+ 
   {
     id: "upcoming",
     label: "Upcoming Bout",
@@ -97,6 +101,11 @@ const sidebarItems = [
     id: "community",
     label: "Join Us",
     icon: Users,
+  },
+  {
+    id: "sponsors",
+    label: "Sponsors",
+    icon: Handshake,
   },
 ];
 
