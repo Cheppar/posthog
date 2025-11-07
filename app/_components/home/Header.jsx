@@ -108,11 +108,7 @@ function Header() {
                 Build 
               </span>
 
-              <img 
-                src="/posthog/confused.png" 
-                alt="Point" 
-                className="h-8 w-8"
-              />
+              
 
               <span className="font-display txtBtn font-medium text-2xl tracking-tight">
                 Bout
