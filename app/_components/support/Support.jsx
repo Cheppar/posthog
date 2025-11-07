@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePostHog } from "posthog-js/react";
 import { Heart, Coffee, CreditCard, Smartphone } from "lucide-react";
 
 // Support data array
@@ -52,6 +53,14 @@ const Support = () => {
   const [supportData, setSupportData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const posthog = usePostHog();
+
+  const trackSupportInteraction = (eventName, payload = {}) => {
+    posthog?.capture(eventName, {
+      location: "support_page",
+      ...payload,
+    });
+  };
 
   // Load support data
   useEffect(() => {
@@ -143,6 +152,12 @@ const Support = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="transition-transform duration-300 hover:scale-105"
+                        onClick={() =>
+                          trackSupportInteraction("support_buymeacoffee_clicked", {
+                            optionId: option.id,
+                            url: option.url,
+                          })
+                        }
                       >
                         <img
                           src={option.buttonImage}
@@ -182,11 +197,21 @@ const Support = () => {
                         method="post" 
                         target="_blank" 
                         style={{ display: 'inline-grid', justifyItems: 'center', alignContent: 'start', gap: '0.5rem' }}
+                        onSubmit={() =>
+                          trackSupportInteraction("support_paypal_submitted", {
+                            optionId: option.id,
+                          })
+                        }
                       >
                         <input 
                           className="pp-C9BCRJUCVAT96" 
                           type="submit" 
                           value="Donate" 
+                          onClick={() =>
+                            trackSupportInteraction("support_paypal_clicked", {
+                              optionId: option.id,
+                            })
+                          }
                         />
                         <img 
                           src="https://www.paypalobjects.com/images/Debit_Credit.svg" 
@@ -221,6 +246,12 @@ const Support = () => {
                           e.currentTarget.style.backgroundColor = '#d95404';
                           e.currentTarget.style.borderColor = '#d95404';
                         }}
+                        onClick={() =>
+                          trackSupportInteraction("support_mpesa_clicked", {
+                            optionId: option.id,
+                            url: option.paymentUrl,
+                          })
+                        }
                       >
                         <Smartphone className="w-5 h-5" />
                         <span>{option.buttonText || "Pay with M-Pesa"}</span>
@@ -243,7 +274,15 @@ const Support = () => {
                 </p>
                 <p className="text-gray-400 text-sm">
                   {supportData.thankYou.contactText}{" "}
-                  <Link href={supportData.thankYou.contactLink} className="txtBtn hover:text-amber-400 underline">
+                  <Link
+                    href={supportData.thankYou.contactLink}
+                    className="txtBtn hover:text-amber-400 underline"
+                    onClick={() =>
+                      trackSupportInteraction("support_contact_clicked", {
+                        destination: supportData.thankYou.contactLink,
+                      })
+                    }
+                  >
                     Contact us
                   </Link>
                 </p>

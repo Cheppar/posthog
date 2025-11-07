@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { PlusIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { usePostHog } from 'posthog-js/react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,6 +28,7 @@ function Header() {
   const path = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const posthog = usePostHog();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +40,24 @@ function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // Track link clicks
+  const trackLinkClick = (linkName, linkHref, location = 'desktop') => {
+    try {
+      if (posthog && typeof posthog.capture === 'function') {
+        posthog.capture('header_link_clicked', {
+          link_name: linkName,
+          link_href: linkHref,
+          location: location, // 'desktop' or 'mobile'
+          current_path: path,
+        });
+      }
+    } catch (error) {
+      // Silently fail if PostHog is not available
+      console.debug('PostHog tracking error:', error);
+    }
+    // Let the Link component handle navigation - don't prevent default
+  };
 
   return (
     <header
@@ -53,9 +73,10 @@ function Header() {
             {/* Desktop navLeft navigation */}
             <nav className="hidden md:flex items-center gap-8">
               {navLeft.map((item) => (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
+                  onClick={() => trackLinkClick(item.name, item.href, 'desktop')}
                   className={cn(
                     "text-sm font-medium relative overflow-hidden group",
                     scrolled ? "text-gray-900" : "txtBtn",
@@ -71,15 +92,16 @@ function Header() {
                         : "scale-x-0 group-hover:scale-x-100"
                     )}
                   ></span>
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
 
-          <a
+          <Link
               href="/"
+              onClick={() => trackLinkClick('Logo', '/', 'desktop')}
               className="flex items-center gap-2"
-              aria-label="Gasify Kenya"
+              aria-label="Build Bout"
             >
              
               <span className="font-display txtBtn font-medium text-2xl tracking-tight">
@@ -95,7 +117,7 @@ function Header() {
               <span className="font-display txtBtn font-medium text-2xl tracking-tight">
                 Bout
               </span>
-            </a>
+            </Link>
           {/* Desktop navigation (right side) */}
           <nav className="hidden md:flex items-center gap-8">
             {navigation.map((item) =>
@@ -128,17 +150,28 @@ function Header() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <DropdownMenuItem>
-                      <Link href="/about">About</Link>
+                      <Link 
+                        href="/about"
+                        onClick={() => trackLinkClick('About (Dropdown)', '/about', 'desktop')}
+                      >
+                        About
+                      </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                      <Link href="/blog">Blog</Link>
+                      <Link 
+                        href="/blog"
+                        onClick={() => trackLinkClick('Blog (Dropdown)', '/blog', 'desktop')}
+                      >
+                        Blog
+                      </Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <a
+                <Link
                   key={item.name}
                   href={item.href}
+                  onClick={() => trackLinkClick(item.name, item.href, 'desktop')}
                   className={cn(
                     "text-sm font-medium relative overflow-hidden group",
                     scrolled ? "text-gray-900" : "txtBtn",
@@ -152,11 +185,14 @@ function Header() {
                       path === item.href ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     )}
                   ></span>
-                </a>
+                </Link>
               )
             )}
             {/* Contact Button */}
-            <Link href="/contact">
+            <Link 
+              href="/contact"
+              onClick={() => trackLinkClick('Contact Button', '/contact', 'desktop')}
+            >
               <Button className="p-4 bg-[#d95404] text-white hover:bg-[#b84303] rounded-full">
                 Contact
               </Button>
@@ -215,7 +251,7 @@ function Header() {
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 container">
           {/* navLeft links in mobile menu */}
           {navLeft.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               className={cn(
@@ -223,29 +259,38 @@ function Header() {
                 path === item.href && item.name === "Home" && "bg-amber-500/20 font-semibold relative",
                 path === item.href && item.name === "Home" && "after:absolute after:bottom-0 after:left-3 after:w-[calc(100%-1.5rem)] after:h-0.5 after:bg-coffee-500"
               )}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                trackLinkClick(item.name, item.href, 'mobile');
+                setMobileMenuOpen(false);
+              }}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
           {/* navigation links in mobile menu */}
           {navigation.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               className={cn(
                 "block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-amber-500/20",
                 path === item.href && "bg-amber-500/20 font-semibold"
               )}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                trackLinkClick(item.name, item.href, 'mobile');
+                setMobileMenuOpen(false);
+              }}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
           <a
             href="#contact"
             className="block mt-4 w-full bg-[#d95404] text-white hover:bg-[#b84303] px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 text-center"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {
+              trackLinkClick('Contact Us (Mobile)', '#contact', 'mobile');
+              setMobileMenuOpen(false);
+            }}
           >
             Contact Us
           </a>

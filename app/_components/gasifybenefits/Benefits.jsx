@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
-import { Download, UsersRound, CirclePlus } from "lucide-react";
+import { usePostHog } from "posthog-js/react";
+import { CirclePlus } from "lucide-react";
 import { motion } from "framer-motion";
 
 // Static content (no Supabase)
@@ -16,6 +15,8 @@ const staticContent = {
 
 
 const Benefits = () => {
+  const posthog = usePostHog();
+
   useEffect(() => {
     // Load Luma checkout script if not already loaded
     if (!document.getElementById('luma-checkout')) {
@@ -68,6 +69,10 @@ const Benefits = () => {
                     className="luma-checkout--button group flex items-center justify-center gap-2 md:gap-2 px-6 py-3.5 md:px-5 md:py-2.5 w-fit max-w-[280px] md:max-w-[200px] min-h-[48px] md:min-h-[40px] clrBtn rounded-full border-2 border-white hover:scale-105 hover:shadow-lg hover:shadow-white/50 hover:bg-amber-600 active:scale-95 transition-all duration-300 text-sm md:text-sm font-semibold"
                     data-luma-action="checkout"
                     data-luma-event-id="evt-sW2EKFsyBm8KDAW"
+                    onClick={() => posthog?.capture("cta_register_here_clicked", {
+                      location: "benefits_section",
+                      action: "open_luma_checkout"
+                    })}
                   >
                     <CirclePlus className="text-white w-6 h-6 md:w-4 md:h-4 group-hover:rotate-90 transition-transform duration-300" />
                     <span className="text-white font-semibold">Register Here</span>

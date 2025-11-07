@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePostHog } from "posthog-js/react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -32,6 +33,15 @@ const contactData = [
 ];
 
 const ContactOptions = () => {
+  const posthog = usePostHog();
+
+  const handleInteraction = (action, payload = {}) => {
+    posthog?.capture("contact_option_interaction", {
+      action,
+      ...payload,
+    });
+  };
+
   // Animation variants for Typeform-like feel
   const buttonVariants = {
     hover: {
@@ -85,11 +95,24 @@ const ContactOptions = () => {
                             href={item.buttonLink}
                             target="_self"
                             className="text-black"
+                            onClick={() =>
+                              handleInteraction("call_us_clicked", {
+                                destination: item.buttonLink,
+                              })
+                            }
                           >
                             {item.buttonText}
                           </a>
                         ) : (
-                          <Link href={item.buttonLink} className="text-black">
+                          <Link
+                            href={item.buttonLink}
+                            className="text-black"
+                            onClick={() =>
+                              handleInteraction("contact_option_clicked", {
+                                destination: item.buttonLink,
+                              })
+                            }
+                          >
                             {item.buttonText}
                           </Link>
                         )}
@@ -108,7 +131,16 @@ const ContactOptions = () => {
                             variant={btnIndex === 0 ? "default" : "outline"}
                             className={btnIndex === 0 ? "bg-amber-500 text-white hover:bg-amber-600" : "border-amber-500 text-white hover:bg-amber-600"}
                           >
-                            <Link href={btn.link} className="text-white">
+                            <Link
+                              href={btn.link}
+                              className="text-white"
+                              onClick={() =>
+                                handleInteraction("contact_secondary_action_clicked", {
+                                  destination: btn.link,
+                                  label: btn.text,
+                                })
+                              }
+                            >
                               {btn.text}
                             </Link>
                           </Button>

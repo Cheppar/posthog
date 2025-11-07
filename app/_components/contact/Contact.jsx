@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePostHog } from "posthog-js/react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Static content for the contact page
@@ -50,6 +51,7 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const posthog = usePostHog();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,6 +62,11 @@ const Contact = () => {
     e.preventDefault();
     // Placeholder for form submission logic (e.g., send to API or email service)
     console.log("Form submitted:", formData);
+    posthog?.capture("contact_form_submitted", {
+      problem: formData.problem,
+      subjectLength: formData.subject.length,
+      messageLength: formData.message.length,
+    });
     // Reset form after submission
     setFormData({ name: "", problem: "", subject: "", message: "" });
   };

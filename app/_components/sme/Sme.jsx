@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
-import { Download, Send } from "lucide-react";
+import { usePostHog } from "posthog-js/react";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Send } from "lucide-react";
 
 // Static content (no Supabase)
 const staticContent = {
@@ -35,6 +36,7 @@ const cardData = [
 ];
 
 const Benefits = () => {
+  const posthog = usePostHog();
   return (
     <div>
       {/* Existing Hero Section */}
@@ -62,6 +64,11 @@ const Benefits = () => {
   <Link
     href="/contact"
     className="yellowbg text-black px-4 py-3 rounded-full text-base font-medium transition-colors duration-200 hover:bg-gray-700 flex items-center gap-2"
+    onClick={() =>
+      posthog?.capture("sme_contact_us_clicked", {
+        destination: "/contact",
+      })
+    }
   >
     Contact us
     <Send className="w-5 h-5 " />

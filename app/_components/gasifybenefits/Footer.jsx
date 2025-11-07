@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { usePostHog } from "posthog-js/react";
 import { CirclePlus } from "lucide-react";
 
 // Mock data array
@@ -52,12 +52,6 @@ const footerDataArray = [
   },
 ];
 
-// Mock function to track analytics
-const trackEvent = (eventName, properties) => {
-  console.log(`Tracking event: ${eventName}`, properties);
-  // Integrate with Google Analytics, Mixpanel, etc.
-};
-
 const Footer = () => {
   // State management
   const [currentDateTime, setCurrentDateTime] = useState("");
@@ -71,6 +65,17 @@ const Footer = () => {
   const [contactForm, setContactForm] = useState({ name: "", message: "" });
   const [contactStatus, setContactStatus] = useState(null);
   const [timezone, setTimezone] = useState("Africa/Nairobi");
+  const posthog = usePostHog();
+
+  const trackEvent = useCallback(
+    (eventName, properties = {}) => {
+      posthog?.capture(eventName, {
+        component: "footer",
+        ...properties,
+      });
+    },
+    [posthog]
+  );
 
   // Load footer data from array
   useEffect(() => {

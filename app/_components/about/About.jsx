@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { usePostHog } from "posthog-js/react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Calendar, MapPin, Clock, Info, Target, Users, Eye, Handshake, History, ChevronRight, CirclePlus, Send } from "lucide-react";
 import { motion } from "framer-motion";
@@ -114,6 +115,7 @@ const About = () => {
   const [activeTab, setActiveTab] = useState("explainer");
   const [sessionsData, setSessionsData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const posthog = usePostHog();
 
   useEffect(() => {
     // Check for tab parameter in URL
@@ -180,7 +182,7 @@ const About = () => {
         );
       
       case "vision":
-        return (
+  return (
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-display font-bold txtBtn mb-6">
               Our Vision
@@ -195,8 +197,8 @@ const About = () => {
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               By fostering an environment of openness and mutual support, we aim to become the go-to community 
               for builders seeking both inspiration and accountability on their journey to creating something meaningful.
-            </p>
-          </div>
+              </p>
+            </div>
         );
       
       case "sponsors":
@@ -263,11 +265,11 @@ const About = () => {
                     className="bg-black border border-gray-700 hover:shadow-lg transition-shadow duration-300"
                     style={{ borderColor: '#d95404', borderWidth: '1px', borderStyle: 'solid' }}
                   >
-                    <CardHeader>
+              <CardHeader>
                       <div className="flex items-center justify-between mb-2">
                         <CardTitle className="text-2xl font-bold text-white">
                           {bout.title}
-                        </CardTitle>
+                </CardTitle>
                         <div className="flex items-center gap-2 text-gray-400 text-sm">
                           <Users className="w-4 h-4" />
                           <span>{bout.attendees} attendees</span>
@@ -283,8 +285,8 @@ const About = () => {
                           <span>{bout.location}</span>
                         </div>
                       </div>
-                    </CardHeader>
-                    <CardContent>
+              </CardHeader>
+              <CardContent>
                       <p className="text-gray-300 mb-4 leading-relaxed">
                         {bout.description}
                       </p>
@@ -374,9 +376,9 @@ const About = () => {
                           className="w-full border-0 outline-none"
                           title={`${session.title} - Event Registration`}
                         ></iframe>
-                      </div>
-                    </CardContent>
-                  </Card>
+                </div>
+              </CardContent>
+            </Card>
                 ))}
               </div>
             ) : (
@@ -413,6 +415,12 @@ const About = () => {
                 style={{ backgroundColor: '#d95404' }}
                 data-luma-action="checkout"
                 data-luma-event-id="evt-sW2EKFsyBm8KDAW"
+                onClick={() =>
+                  posthog?.capture("about_join_us_register_clicked", {
+                    tab: activeTab,
+                    action: "open_luma_checkout",
+                  })
+                }
               >
                 <CirclePlus className="text-white w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
                 <span className="text-white font-semibold">Register</span>
@@ -450,6 +458,12 @@ const About = () => {
               <Link
                 href="/contact"
                 className="yellowbg text-black px-4 py-3 rounded-full text-base font-medium transition-colors duration-200 hover:bg-gray-700 flex items-center gap-2"
+                onClick={() =>
+                  posthog?.capture("about_contact_us_clicked", {
+                    location: "about_intro",
+                    destination: "/contact",
+                  })
+                }
               >
                 Contact us
                 <Send className="w-5 h-5" />
@@ -475,7 +489,14 @@ const About = () => {
                       return (
                         <li key={item.id} className="flex-shrink-0">
                           <button
-                            onClick={() => setActiveTab(item.id)}
+                            onClick={() => {
+                              setActiveTab(item.id);
+                              posthog?.capture("about_sidebar_tab_selected", {
+                                tab: item.id,
+                                label: item.label,
+                                layout: "mobile",
+                              });
+                            }}
                             className={cn(
                               "flex items-center gap-2 px-4 py-3 rounded-md whitespace-nowrap transition-colors duration-200",
                               activeTab === item.id
@@ -498,7 +519,14 @@ const About = () => {
                     return (
                       <li key={item.id}>
                         <button
-                          onClick={() => setActiveTab(item.id)}
+                          onClick={() => {
+                            setActiveTab(item.id);
+                            posthog?.capture("about_sidebar_tab_selected", {
+                              tab: item.id,
+                              label: item.label,
+                              layout: "desktop",
+                            });
+                          }}
                           className={cn(
                             "w-full flex items-center gap-3 px-4 py-3 rounded-md text-left transition-colors duration-200",
                             activeTab === item.id

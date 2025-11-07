@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePostHog } from "posthog-js/react";
 
 // Static content (no Supabase)
 const staticContent = {
@@ -11,6 +12,7 @@ const staticContent = {
 };
 
 const LiquidGas = () => {
+  const posthog = usePostHog();
   return (
     <div>
       <section className="pt-2 pb-10 md:pt-10 md:pb-4  relative overflow-hidden">
@@ -45,6 +47,12 @@ const LiquidGas = () => {
               <Link
                 href="/about"
                 className="relative px-6 py-3 rounded-full text-base font-medium text-white border-2 border-white bg-transparent transition-all duration-300 hover:bg-white hover:text-gray-900 hover:scale-105 hover:shadow-lg hover:shadow-white/50 active:scale-95"
+                onClick={() =>
+                  posthog?.capture("hero_learn_more_clicked", {
+                    location: "liquid_gas_hero",
+                    destination: "/about",
+                  })
+                }
               >
                 Learn More
               </Link>

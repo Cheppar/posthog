@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { usePostHog } from "posthog-js/react";
 import {
   Accordion,
   AccordionContent,
@@ -9,44 +10,51 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqData = [
-  {
-    question: "What is Build Bout?",
-    answer: "Build Bout is a co-working community of builders in Nakuru, Kenya. We provide a collaborative space for builders who want to create and invest in a community together."
-  },
-  {
-    question: "How can I join?",
-    answer: (
-      <>
-        Register for our sessions from our{" "}
-        <Link href="/about?tab=upcoming" className="txtBtn hover:text-amber-400 underline transition-colors">
-          Events
-        </Link>{" "}
-        page. Builders need to have a clear vision and desire to make an impact locally.
-      </>
-    )
-  },
-  {
-    question: "What is Build Bout's goal?",
-    answer: "To encourage more accountability in building anything. An app, business,writing a song, hardware project, etc."
-  },
- 
-  {
-    question: "What is in for us?",
-    answer: "Simply building together. All sessions are meant to be collaborative and supportive. No marketing / recruiting"
-  },
-  {
-    question: "What amenities does Build Bout offer?",
-    answer: "A comfortable work space with high-speed internet, a collaborative environment designed to foster innovation and refreshments."
-  },
-  
-  {
-    question: "What makes Build Bout different from other co-working groups?",
-    answer: "Build Bout is specifically designed for builders who want to invest in their community. We focus on creating meaningful connections, fostering collaboration, and supporting builders who are committed to building something significant together."
-  }
-];
-
 const FAQ = () => {
+  const posthog = usePostHog();
+  const faqData = [
+    {
+      question: "What is Build Bout?",
+      answer: "Build Bout is a co-working community of builders in Nakuru, Kenya. We provide a collaborative space for builders who want to create and invest in a community together.",
+    },
+    {
+      question: "How can I join?",
+      answer: (
+        <>
+          Register for our sessions from our{" "}
+          <Link
+            href="/about?tab=upcoming"
+            className="txtBtn hover:text-amber-400 underline transition-colors"
+            onClick={() =>
+              posthog?.capture("faq_events_link_clicked", {
+                destination: "/about",
+                tab: "upcoming",
+              })
+            }
+          >
+            Events
+          </Link>{" "}
+          page. Builders need to have a clear vision and desire to make an impact locally.
+        </>
+      ),
+    },
+    {
+      question: "What is Build Bout's goal?",
+      answer: "To encourage more accountability in building anything. An app, business,writing a song, hardware project, etc.",
+    },
+    {
+      question: "What is in for us?",
+      answer: "Simply building together. All sessions are meant to be collaborative and supportive. No marketing / recruiting",
+    },
+    {
+      question: "What amenities does Build Bout offer?",
+      answer: "A comfortable work space with high-speed internet, a collaborative environment designed to foster innovation and refreshments.",
+    },
+    {
+      question: "What makes Build Bout different from other co-working groups?",
+      answer: "Build Bout is specifically designed for builders who want to invest in their community. We focus on creating meaningful connections, fostering collaboration, and supporting builders who are committed to building something significant together.",
+    },
+  ];
   return (
     <section className="py-16 bg-black">
       <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,6 +2,7 @@ import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { usePostHog } from "posthog-js/react";
 import LiquidGas from "./LiquidGas"
 import Oxygen from "./Oxygen"
 import Accessory from "./Accessory"
@@ -10,11 +11,19 @@ import Accessory from "./Accessory"
 function Tabbs() {
     // State to manage the active tab
   const [activeTab, setActiveTab] = useState("lpg");
+  const posthog = usePostHog();
+
+  const handleTabChange = (value) => {
+    setActiveTab(value);
+    posthog?.capture("session_tab_changed", {
+      tab: value,
+    });
+  };
   return (
     <div>
           <Tabs
   value={activeTab}
-  onValueChange={setActiveTab}
+  onValueChange={handleTabChange}
   className=" w-full"
 >
   <TabsList className="grid yellowbg text-2xl w-full grid-cols-4 mb-2">

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import { usePostHog } from "posthog-js/react";
 import { motion } from "framer-motion";
 import { CirclePlus, GitMerge } from "lucide-react";
 
@@ -14,6 +14,8 @@ const staticContent = {
 };
 
 const Download = () => {
+  const posthog = usePostHog();
+
   useEffect(() => {
     // Load Luma checkout script if not already loaded
     if (!document.getElementById('luma-checkout')) {
@@ -87,6 +89,10 @@ const Download = () => {
                   className="luma-checkout--button group flex items-center justify-center gap-2 md:gap-2 px-8 py-4 md:px-5 md:py-2.5 w-full md:w-fit md:max-w-[200px] min-h-[52px] md:min-h-[40px] clrBtn rounded-full border-2 border-white hover:scale-105 hover:shadow-lg hover:shadow-white/50 hover:bg-amber-600 active:scale-95 transition-all duration-300 text-base md:text-sm font-semibold"
                   data-luma-action="checkout"
                   data-luma-event-id="evt-sW2EKFsyBm8KDAW"
+                  onClick={() => posthog?.capture("cta_join_us_clicked", {
+                    location: "download_section",
+                    action: "open_luma_checkout"
+                  })}
                 >
                   <CirclePlus className="text-white w-6 h-6 md:w-4 md:h-4 group-hover:rotate-90 transition-transform duration-300" />
                   <span className="text-white font-semibold">Join Us</span>
