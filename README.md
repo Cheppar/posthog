@@ -196,15 +196,11 @@ If this repo is used in an organization, add contact info here (owner, Slack cha
 This schedule lists planned activities and their statuses. The first item below is marked as completed on the date requested.
 
 - Saturday November 15 2025 — [x] Kickoff & repository initialization (scaffold Next.js app, add basic README and initial commit) — Completed
-- Saturday November 22 2025 — [ ] Wire up PostHog analytics in the app (install SDK, minimal event tracking, privacy considerations)
-- Saturday November 29 2025 — [ ] Add an example analytics dashboard page (display events, simple charts)
-- Saturday December 06 2025 — [ ] Add environment configuration and sample .env.example; document secrets handling
-- Saturday December 13 2025 — [ ] Add CI workflow (linting, tests, build check) and ensure green status on PRs
-- Saturday December 20 2025 — [ ] Add unit and integration tests for key components and analytics flows
-- Saturday December 27 2025 — [ ] Prepare deployment to Vercel and update deployment docs
-- Saturday January 03 2026 — [ ] Open issues for improvements and start a roadmap (feature flags, experiments, retention dashboards)
+- Saturday November 29 2025 — [ ] IoT at Pixel Electric, Kiamunyi (scheduled)
+- Saturday December 06 2025 — [ ] Build Bout Environment (planning)
+- Saturday December 13 2025 — [ ] 
 
-Feel free to modify dates, reorder items, or add owners and estimates (e.g., 2d, 1w) to each entry. If you'd like, I can convert this schedule into GitHub issues or a project board and create the initial tasks for you.
+Feel free to modify dates, reorder items, or add owners and estimates (e.g.2w) to each entry. If you'd like, I can convert this schedule into GitHub issues or a project board and create the initial tasks for you.
 
 ---
 
