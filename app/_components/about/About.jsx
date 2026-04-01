@@ -5,9 +5,10 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { usePostHog } from "posthog-js/react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Calendar, MapPin, Clock, Info, Target, Users, Eye, Handshake, History, ChevronRight, CirclePlus, Send } from "lucide-react";
+import { Calendar, MapPin, Clock, Info, Target, Users, Eye, Handshake, History, ChevronRight, CirclePlus, Send, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { PreviousBoutsSection } from "./previous-bouts";
 
 // Static content for the About page
 const staticContent = {
@@ -34,11 +35,6 @@ const upcomingSessionsData = {
       status: "upcoming"
     }
   ]
-};
-
-// Previous bouts data
-const previousBoutsData = {
-  bouts: []
 };
 
 // Sponsors data
@@ -248,69 +244,7 @@ const About = () => {
         );
       
       case "previous":
-        return (
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-display font-bold txtBtn mb-6">
-              Previous Bout Sessions
-            </h2>
-            <p className="text-lg text-gray-400 mb-8">
-              A look back at our past Build Bout sessions and what we've accomplished together.
-            </p>
-
-            {previousBoutsData.bouts && previousBoutsData.bouts.length > 0 ? (
-              <div className="grid grid-cols-1 gap-6">
-                {previousBoutsData.bouts.map((bout) => (
-                  <Card 
-                    key={bout.id}
-                    className="bg-black border border-gray-700 hover:shadow-lg transition-shadow duration-300"
-                    style={{ borderColor: '#d95404', borderWidth: '1px', borderStyle: 'solid' }}
-                  >
-              <CardHeader>
-                      <div className="flex items-center justify-between mb-2">
-                        <CardTitle className="text-2xl font-bold text-white">
-                          {bout.title}
-                </CardTitle>
-                        <div className="flex items-center gap-2 text-gray-400 text-sm">
-                          <Users className="w-4 h-4" />
-                          <span>{bout.attendees} attendees</span>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-4 text-gray-400 text-sm">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>{bout.date}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4" />
-                          <span>{bout.location}</span>
-                        </div>
-                      </div>
-              </CardHeader>
-              <CardContent>
-                      <p className="text-gray-300 mb-4 leading-relaxed">
-                        {bout.description}
-                      </p>
-                      {bout.highlights && bout.highlights.length > 0 && (
-                        <div className="mt-4">
-                          <h4 className="text-sm font-semibold text-gray-400 mb-2">Highlights:</h4>
-                          <ul className="list-disc list-inside space-y-1 text-gray-300">
-                            {bout.highlights.map((highlight, index) => (
-                              <li key={index} className="text-sm">{highlight}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-12">
-                <p className="text-gray-400">No previous bout sessions to display yet.</p>
-              </div>
-            )}
-          </div>
-        );
+        return <PreviousBoutsSection posthog={posthog} />;
       
       case "upcoming":
         return (
