@@ -27,10 +27,10 @@ const upcomingSessionsData = {
   sessions: [
     {
       id: "session-1",
-      title: "Build Bout Session 1",
-      eventId: "evt-sW2EKFsyBm8KDAW",
+      title: "Build Bout 2.3",
+      eventId: "evt-SCZzwwXtFfozXew",
       description: "Join us for an exciting Build Bout session where builders come together to share ideas, network, and collaborate on innovative projects.",
-      date: "Nov 8 2025",
+      date: "April 7 2026",
       location: "TBA",
       status: "upcoming"
     }
