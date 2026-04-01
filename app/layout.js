@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Provider from "./Provider";
 import { PostHogProvider } from "./providers";
+import { Analytics } from "@vercel/analytics/next"
 // import WhatsAppWidget from "./_components/widget/Whatsapp";
 
 const outfitRegular = localFont({
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
               {/* <WhatsAppWidget/> */}
             </Provider>
           </PostHogProvider>
+          <Analytics />
       </body>
     </html>
   );
