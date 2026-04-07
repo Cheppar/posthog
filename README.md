@@ -1,6 +1,6 @@
 # PostHog (fork / demo)
 
-This repository contains a small Next.js application bootstrapped with create-next-app. It is intended as a demo or starting point for a PostHog-related project (analytics dashboard, experimentation, or similar). The README below has been expanded with clearer setup, development, and contribution instructions as well as an activity schedule at the bottom.
+This repository contains a Next.js application bootstrapped with create-next-app. It is intended as a demo or starting point for a PostHog-related project (analytics dashboard, experimentation, or similar). The README below has been expanded with clearer setup, development, and contribution instructions as well as an activity schedule at the bottom.
 
 > Note: If this repo is intended to reproduce or extend the official PostHog product, update this description to reflect the project scope and any licensing or dataset requirements.
 
