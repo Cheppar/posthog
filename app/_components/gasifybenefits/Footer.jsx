@@ -11,7 +11,7 @@ const footerDataArray = [
     items: [
       { href: "/about", label: "About Us" },
       { href: "/about?tab=upcoming", label: "Events" },
-      { href: "/careers", label: "Careers" },
+      { href: "/careers", label: "Job Board" },
       { href: "/blog", label: "Blog" },
     ],
   },
@@ -19,7 +19,7 @@ const footerDataArray = [
     section: "contactInfo",
     items: {
       phone: "+254 716 813 545", 
-      email: "support@buildbout.co.ke",
+      email: "ask@cheppar.co.ke",
       hours: "895-20100, Nakuru, Kenya",
     },
   },
