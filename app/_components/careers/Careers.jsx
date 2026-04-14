@@ -124,7 +124,7 @@ export default function Careers() {
         <div className="mt-8 space-y-6 text-base leading-relaxed text-gray-300 md:text-lg">
           <p>
             We&apos;re hiring builders to join us under an ownership model. What you work on will
-            depend on your strengths, curiosity, and ability to execute—so choose your own
+            depend on your strengths, curiosity, and ability to execute so choose your own
             adventure.
           </p>
 

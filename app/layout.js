@@ -23,10 +23,38 @@ const outfitLight = localFont({
   weight: "200 900", // Light weight
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://buildbout.co.ke";
+
 export const metadata = {
-  title: "Build Bout",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Build Bout",
+    template: "%s | Build Bout",
+  },
   description:
-    "Co-working incubator for builders in Nakuru",
+    "Co-working incubator for builders in Nakuru — community, accountability, and shipping together.",
+  openGraph: {
+    type: "website",
+    locale: "en_KE",
+    siteName: "Build Bout",
+    title: "Build Bout",
+    description:
+      "Co-working incubator for builders in Nakuru — community, accountability, and shipping together.",
+    images: [
+      {
+        url: "/og-build-bout.png",
+        alt: "Build Bout — torn paper logo on black",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Build Bout",
+    description:
+      "Co-working incubator for builders in Nakuru — community, accountability, and shipping together.",
+    images: ["/og-build-bout.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
