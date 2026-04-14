@@ -16,6 +16,7 @@ import { cn } from "@/lib/utils";
 // Navigation links for the desktop
 const navigation = [
   { name: "About", href: "/about" },
+  { name: "Careers", href: "/careers" },
   { name: "Support", href: "/support" },
 ];
 

@@ -17,7 +17,7 @@ const staticContent = {
   rightText: "Our mission is to make clean energy simple and accessible for all through innovative technology and partnerships.",
   intro: {
     title: "Build Bout",
-    description: "Build Bout is a vibrant community group for builders, creators, and innovators in Kenya. We meet every two weeks to share ideas, network, and collaborate on innovative projects. Our mission is to focus on accountability by building together and openly. Whether you're working on the next big startup, developing a creative project, or simply seeking inspiration, Build Bout is your community for building something meaningful.",
+    description: "Build Bout is a vibrant community group for builders, creators, and innovators in Kenya. We meet weekly to share ideas, network, and collaborate on innovative projects. Our mission is to focus on accountability by building together and openly. Whether you're working on the next big startup, developing a creative project, or simply seeking inspiration, Build Bout is your community for building something meaningful.",
     subtitle: "Join us for our bi-weekly sessions where you can network, learn, and collaborate with like-minded builders and creators."
   }
 };
