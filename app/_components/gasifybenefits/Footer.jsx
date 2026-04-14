@@ -11,6 +11,7 @@ const footerDataArray = [
     items: [
       { href: "/about", label: "About Us" },
       { href: "/about?tab=upcoming", label: "Events" },
+      { href: "/careers", label: "Careers" },
       { href: "/blog", label: "Blog" },
     ],
   },
