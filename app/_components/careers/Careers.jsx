@@ -63,7 +63,7 @@ export default function Careers() {
 
           <p className="text-white">
             In general, we&apos;re looking for{" "}
-            <strong className="txtBtn font-semibold">Product Owners</strong> who are:
+            <strong className="txtBtn font-semibold">Product Builders</strong> who are:
           </p>
 
           <ul className="list-none space-y-5 border-l-2 border-[#d95404]/60 pl-6">
