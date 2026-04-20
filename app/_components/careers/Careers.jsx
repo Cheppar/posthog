@@ -51,6 +51,10 @@ const ownershipTraits = [
     text: "You’re respectful, own your responsibility, collaborative, and accountable.",
   },
   {
+    lead: "Hybrid-ready collaborators.",
+    text: "You do your best work in a hybrid model—clear async updates and deep focus when remote, and high-trust, in-person time when we align, demo, and ship together.",
+  },
+  {
     lead: "Ownership mindset.",
     text: "You don’t just complete tasks,you own outcomes. From idea to deployment, you’re responsible for impact.",
   },
@@ -85,9 +89,14 @@ export default function Careers() {
         <div className="mb-8 rounded-2xl bg-white px-5 py-5 text-gray-900 shadow-xl shadow-black/25 ring-1 ring-gray-200/90 md:px-6 md:py-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="space-y-1">
-              <span className="inline-flex items-center rounded-full bg-[#d95404] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
-                Hiring
-              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center rounded-full bg-[#d95404] px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+                  Hiring
+                </span>
+                <span className="inline-flex items-center rounded-full border border-gray-300 bg-gray-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-800">
+                  Hybrid work
+                </span>
+              </div>
               <p className="pt-2 text-sm text-gray-600">
                 <span className="font-semibold text-gray-900">Posted:</span> {postedLabel}
               </p>
@@ -123,9 +132,12 @@ export default function Careers() {
 
         <div className="mt-8 space-y-6 text-base leading-relaxed text-gray-300 md:text-lg">
           <p>
-            We&apos;re hiring builders to join us under an ownership model. What you work on will
-            depend on your strengths, curiosity, and ability to execute, so choose your own
-            adventure.
+            We&apos;re hiring builders to join us under an ownership model.{" "}
+            <strong className="font-semibold text-white">Product Builders</strong> work in a{" "}
+            <strong className="txtBtn font-semibold">hybrid</strong> rhythm: deep async and remote
+            execution, with in-person time in Kenya when workshops, reviews, demos, or launches need
+            high bandwidth. What you work on will depend on your strengths, curiosity, and ability to
+            execute, so choose your own adventure.
           </p>
 
           <p className="text-white">
@@ -167,6 +179,12 @@ export default function Careers() {
             <li>Retainer fee for consistency</li>
             <li>Performance based earnings (percentage of the project value based on your contributions)</li>
             <li>Direct upside tied to your impact</li>
+            <li>
+              <strong className="text-white">Hybrid-friendly economics.</strong> The model is built
+              for a hybrid cadence: predictable retainer between in-person milestones, with
+              performance upside when you ship value—whether that delivery happens remotely or on
+              site.
+            </li>
           </ul>
 
           <h2 className="pt-4 font-display text-xl font-bold text-white md:text-2xl txtBtn">
