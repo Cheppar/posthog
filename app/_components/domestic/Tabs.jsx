@@ -6,11 +6,11 @@ import { usePostHog } from "posthog-js/react";
 import LiquidGas from "./LiquidGas"
 import Oxygen from "./Oxygen"
 import Accessory from "./Accessory"
-
+import Environment from "./Environment"
 
 function Tabbs() {
     // State to manage the active tab
-  const [activeTab, setActiveTab] = useState("lpg");
+  const [activeTab, setActiveTab] = useState("batteries");
   const posthog = usePostHog();
 
   const handleTabChange = (value) => {
@@ -34,7 +34,7 @@ function Tabbs() {
         activeTab === "lpg" && "bg-black text-black"
       )}
     >
-      Session 1
+      Community Support
     </TabsTrigger>
     <TabsTrigger
       value="batteries"
@@ -43,7 +43,7 @@ function Tabbs() {
         activeTab === "batteries" && "bg-black text-black"
       )}
     >
-      Session 2
+      Hackathons
     </TabsTrigger>
     <TabsTrigger
       value="lpg-bottles"
@@ -52,7 +52,7 @@ function Tabbs() {
         activeTab === "lpg-bottles" && "bg-black text-black"
       )}
     >
-      Session 3
+      Build Sessions
     </TabsTrigger>
     <TabsTrigger
       value="events"
@@ -61,7 +61,7 @@ function Tabbs() {
         activeTab === "events" && "bg-black text-black"
       )}
     >
-      Session 4
+     Environment
     </TabsTrigger>
     
   </TabsList>
@@ -84,11 +84,7 @@ function Tabbs() {
   </TabsContent>
   <TabsContent value="events">
     <div className="p-6 bg-muted rounded-lg">
-      <div className="text-center py-12">
-        <p className="text-lg md:text-xl text-gray-300">
-          The session will be announced.
-        </p>
-      </div>
+      <Environment />
     </div>
   </TabsContent>
 </Tabs>

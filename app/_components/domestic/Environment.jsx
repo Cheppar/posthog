@@ -5,35 +5,20 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
-    src: "/events/uoe-hackathon.png",
-    alt: "Build Bout and Vercel hackathon group photo",
-    href: "https://photos.app.goo.gl/ZDwmfqsi6rUwDP6g9",
+    src: "/events/combi.jpg",
+    alt: "Seedballs prepared for environmental restoration",
+    href: "https://luma.com/your-environment-event",
   },
   {
-    src: "/events/mamuza-session.png",
-    alt: "Build session participants with projects",
-    href: "https://luma.com/4wh8571f",
-  },
-  {
-    src: "/events/egerhacks.jpg",
-    alt: "Build session participants with projects",
-    href: "https://xxradiantempire28.pixieset.com/hackertonaisummit/",
-  },
-  {
-    src: "/events/v1.jpg",
-    alt: "Build session participants with projects",
-    href: "https://photos.app.goo.gl/NnyN8oa5kbaqtW1ZA",
-  },
-  {
-    src: "/events/v2.png",
-    alt: "Build session participants with projects",
-    href: "https://photos.app.goo.gl/NnyN8oa5kbaqtW1ZA",
+    src: "/events/farmland.png",
+    alt: "Community members at the environmental activity site",
+    href: "https://luma.com/your-environment-event-2",
   },
 ];
 
 const AUTO_PLAY_MS = 3500;
 
-const Oxygen = () => {
+const Environment = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -56,8 +41,7 @@ const Oxygen = () => {
     <section className="py-8 md:py-12 relative bg-gray-900 rounded-lg">
       <div className="container max-w-6xl mx-auto relative z-10 px-4">
         <div className="mb-4 text-center">
-          <p className="text-lg md:text-xl text-gray-300">We have hosted 6 IRL Hackathons for our rural developer 
-            communities in four rural cities. Looking for support to host more in the future. </p>
+          <p className="text-lg md:text-xl text-gray-300">Environment highlights.</p>
         </div>
 
         <div className="relative overflow-hidden rounded-xl border border-gray-700">
@@ -80,7 +64,7 @@ const Oxygen = () => {
                 <img
                   src={slide.src}
                   alt={slide.alt}
-                  className="h-[260px] w-full object-cover sm:h-[360px] md:h-[440px]"
+                  className="h-[300px] w-full object-cover sm:h-[420px] md:h-[500px]"
                   loading="lazy"
                 />
               </div>
@@ -124,4 +108,4 @@ const Oxygen = () => {
   );
 };
 
-export default Oxygen;
+export default Environment;
