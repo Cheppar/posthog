@@ -10,6 +10,11 @@ const slides = [
     href: "https://photos.app.goo.gl/ZDwmfqsi6rUwDP6g9",
   },
   {
+    src: "/events/uoelast.jpg",
+    alt: "Hackathon participants at UoE event",
+    href: "https://photos.app.goo.gl/ZDwmfqsi6rUwDP6g9",
+  },
+  {
     src: "/events/mamuza-session.png",
     alt: "Build session participants with projects",
     href: "https://luma.com/4wh8571f",
@@ -25,7 +30,7 @@ const slides = [
     href: "https://photos.app.goo.gl/NnyN8oa5kbaqtW1ZA",
   },
   {
-    src: "/events/v2.png",
+    src: "/events/v2.jpg",
     alt: "Build session participants with projects",
     href: "https://photos.app.goo.gl/NnyN8oa5kbaqtW1ZA",
   },
